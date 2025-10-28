@@ -1,12 +1,11 @@
 package com.projeto.domains.enums;
 
-public enum TipoTransacao {
-
-    CREDITO (0, "CREDITO"), DEBITO (1, "DEBITO"), TRANSFERENCIA(2,"TRANSFERENCIA") ;
+public enum StatusCartao {
+    DESBLOQUEADO (0, "DESBLOQUEADO"), BLOQUEADO (1, "BLOQUEADO");
     private Integer id;
     private String descricao;
 
-    TipoTransacao(Integer id, String descricao) {
+    StatusCartao(Integer id, String descricao) {
         this.id = id;
         this.descricao = descricao;
     }
@@ -34,6 +33,6 @@ public enum TipoTransacao {
                 return status;
             }
         }
-        throw new IllegalArgumentException("Tipo de transação inválido!");
+        throw new IllegalArgumentException("Status do cartão inválido!");
     }
 }
