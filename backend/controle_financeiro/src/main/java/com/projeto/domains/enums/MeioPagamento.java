@@ -27,11 +27,11 @@ public enum MeioPagamento {
         this.descricao = descricao;
     }
 
-    public static Status toEnum(Integer id){
+    public static MeioPagamento toEnum(Integer id){
         if(id == null) return null;
-        for(Status status : Status.values()){
-            if(id.equals(status.getId())){
-                return status;
+        for(MeioPagamento meioPagamento : MeioPagamento.values()){
+            if(id.equals(meioPagamento.getId())){
+                return meioPagamento;
             }
         }
         throw new IllegalArgumentException("Meio de Pagamento inválido!");

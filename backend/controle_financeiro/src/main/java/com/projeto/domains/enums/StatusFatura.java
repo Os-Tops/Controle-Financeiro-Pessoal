@@ -26,11 +26,11 @@ public enum StatusFatura {
         this.descricao = descricao;
     }
 
-    public static Status toEnum(Integer id){
+    public static StatusFatura toEnum(Integer id){
         if(id == null) return null;
-        for(Status status : Status.values()){
-            if(id.equals(status.getId())){
-                return status;
+        for(StatusFatura statusFatura : StatusFatura.values()){
+            if(id.equals(statusFatura.getId())){
+                return statusFatura;
             }
         }
         throw new IllegalArgumentException("Status inválido!");
