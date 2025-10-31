@@ -26,11 +26,11 @@ public enum StatusCartao {
         this.descricao = descricao;
     }
 
-    public static Status toEnum(Integer id){
+    public static StatusCartao toEnum(Integer id){
         if(id == null) return null;
-        for(Status status : Status.values()){
-            if(id.equals(status.getId())){
-                return status;
+        for(StatusCartao statusCartao : StatusCartao.values()){
+            if(id.equals(statusCartao.getId())){
+                return statusCartao;
             }
         }
         throw new IllegalArgumentException("Status do cartão inválido!");

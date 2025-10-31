@@ -26,11 +26,11 @@ public enum StatusLancamento {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public static Status toEnum(Integer id){
+    public static StatusLancamento toEnum(Integer id){
         if(id == null) return null;
-        for(Status status : Status.values()){
-            if(id.equals(status.getId())){
-                return status;
+        for(StatusLancamento statusLancamento : StatusLancamento.values()){
+            if(id.equals(statusLancamento.getId())){
+                return statusLancamento;
             }
         }
         throw new IllegalArgumentException("Status de Lançamento inválido!");

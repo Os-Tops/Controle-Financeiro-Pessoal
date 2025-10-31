@@ -27,11 +27,11 @@ public enum TipoLancamento {
         this.descricao = descricao;
     }
 
-    public static Status toEnum(Integer id){
+    public static TipoLancamento toEnum(Integer id){
         if(id == null) return null;
-        for(Status status : Status.values()){
-            if(id.equals(status.getId())){
-                return status;
+        for(TipoLancamento tipoLancamento : TipoLancamento.values()){
+            if(id.equals(tipoLancamento.getId())){
+                return tipoLancamento;
             }
         }
         throw new IllegalArgumentException("Tipo de Lançamento inválido!");

@@ -27,11 +27,11 @@ public enum TipoTransacao {
         this.descricao = descricao;
     }
 
-    public static Status toEnum(Integer id){
+    public static TipoTransacao toEnum(Integer id){
         if(id == null) return null;
-        for(Status status : Status.values()){
-            if(id.equals(status.getId())){
-                return status;
+        for(TipoTransacao tipoTransacao : TipoTransacao.values()){
+            if(id.equals(tipoTransacao.getId())){
+                return tipoTransacao;
             }
         }
         throw new IllegalArgumentException("Tipo de transação inválido!");
