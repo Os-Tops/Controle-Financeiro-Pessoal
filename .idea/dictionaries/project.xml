@@ -4,9 +4,12 @@
       <w>agencia</w>
       <w>cartao</w>
       <w>conta</w>
+      <w>getdocumento</w>
+      <w>historico</w>
       <w>instituicao</w>
       <w>meio</w>
       <w>pagamento</w>
+      <w>setdocumento</w>
       <w>usuario</w>
     </words>
   </dictionary>
