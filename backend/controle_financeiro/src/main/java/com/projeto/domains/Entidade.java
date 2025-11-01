@@ -31,18 +31,18 @@ public class Entidade {
     @Column(nullable=false, length=120)
     private String documento;
 
-    @NotNull
-    @Column(nullable=false, length=120)
-    private Long idUsuario;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "idUsuario", nullable = false)
+    private Usuario usuario;
 
     public Entidade() {
     }
 
-    public Entidade(Long id, String nome, String documento, Long idUsuario) {
+    public Entidade(Long id, String nome, String documento, Usuario usuario) {
         this.id = id;
         this.nome = nome;
         this.documento = documento;
-        this.idUsuario = idUsuario;
+        this.usuario = usuario;
     }
 
     public Long getId() {
@@ -69,12 +69,12 @@ public class Entidade {
         this.documento = documento;
     }
 
-    public Long getidUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setidUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
