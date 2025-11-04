@@ -57,7 +57,7 @@ public class FaturaCartao {
     @JoinColumn(name = "idCartao", nullable = false)
     private CartaoCredito cartaoCredito;
 
-    public ContaBancaria() {
+    public FaturaCartao() {
     }
 
     public FaturaCartao(Long id, LocalDate competencia, LocalDate dataFechamento, LocalDate dataVencimento, BigDecimal valorTotal, StatusFatura statusFatura, CartaoCredito cartaoCredito) {
