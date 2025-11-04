@@ -38,19 +38,24 @@ public class Pagamento {
     private String observacao;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idConta", nullable = false)
+    @JoinColumn(name = "idContaBancaria", nullable = false)
     private ContaBancaria contaBancaria;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "idLancamento", nullable = false)
+    private Lancamento lancamento;
 
     public Pagamento() {
     }
 
     public Pagamento(Long id, LocalDate dataPagamento, BigDecimal valorPago,
-                     String observacao, ContaBancaria contaBancaria) {
+                     String observacao, ContaBancaria contaBancaria, Lancamento lancamento) {
         this.id = id;
         this.dataPagamento = dataPagamento;
         this.valorPago = valorPago;
         this.observacao = observacao;
         this.contaBancaria = contaBancaria;
+        this.lancamento = new Lancamento();
     }
 
     public Long getId() {
@@ -92,6 +97,10 @@ public class Pagamento {
     public void setContaBancaria(ContaBancaria contaBancaria) {
         this.contaBancaria = contaBancaria;
     }
+
+    public Lancamento getLancamento() { return lancamento; }
+
+    public void setLancamento(Lancamento lancamento) { this.lancamento = lancamento; }
 
     @Override
     public boolean equals(Object o) {
