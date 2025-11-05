@@ -26,11 +26,11 @@ public class Transferencia {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idContaBancaria", nullable = false)
+    @JoinColumn(name = "idContaBancariaOrigem", nullable = false)
     private ContaBancaria contaOrigem ;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idContaBancaria", nullable = false)
+    @JoinColumn(name = "idContaBancariaDestino", nullable = false)
     private ContaBancaria contaDestino ;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
