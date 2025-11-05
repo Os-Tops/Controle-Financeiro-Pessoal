@@ -13,7 +13,7 @@ public class UsuarioDTO {
 
     @Null(groups = Create.class, message = "Id deve ser omitido na criação")
     @NotNull(groups = Update.class, message = "Id é obrigatório na atualização")
-    private Long idUsuario;
+    private Long id;
 
     @NotBlank(message = "Nome é obrigatório")
     @Size(max = 120, message = "Nome deve ter no máximo 120 caracteres")
@@ -30,19 +30,19 @@ public class UsuarioDTO {
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(Long idUsuario, String nome, String email, LocalDate criadoEm) {
-        this.idUsuario = idUsuario;
+    public UsuarioDTO(Long id, String nome, String email, LocalDate criadoEm) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.criadoEm = criadoEm;
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -72,7 +72,7 @@ public class UsuarioDTO {
     @Override
     public String toString() {
         return "UsuarioDTO{" +
-                "id=" + idUsuario +
+                "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", criadoEm=" + criadoEm +
