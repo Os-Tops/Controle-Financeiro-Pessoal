@@ -6,7 +6,7 @@ import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
-public class UsuarioDTO {
+public class    UsuarioDTO {
 
     public interface Create {}
     public interface Update {}
