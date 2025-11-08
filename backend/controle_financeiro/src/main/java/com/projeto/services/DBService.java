@@ -106,8 +106,8 @@ public class DBService {
             cartaoCreditoRepo.save(cartaoCredito2);
 
             // Criar faturas
-            FaturaCartao faturaCartao1 = new FaturaCartao(null, LocalDate.of(2025, 10, 1), LocalDate.of(2025, 10, 20), LocalDate.of(2025, 11, 10), new BigDecimal("1200.00"), StatusFatura.ABERTA, "Banco A", cartaoCredito1);
-            FaturaCartao faturaCartao2 = new FaturaCartao(null, LocalDate.of(2025, 11, 1), LocalDate.of(2025, 11, 20), LocalDate.of(2025, 12, 10), new BigDecimal("1500.00"), StatusFatura.PAGA, "Banco B", cartaoCredito2);
+            FaturaCartao faturaCartao1 = new FaturaCartao(null, LocalDate.of(2025, 10, 1), LocalDate.of(2025, 10, 20), LocalDate.of(2025, 11, 10), new BigDecimal("1200.00"), StatusFatura.ABERTA, cartaoCredito1);
+            FaturaCartao faturaCartao2 = new FaturaCartao(null, LocalDate.of(2025, 11, 1), LocalDate.of(2025, 11, 20), LocalDate.of(2025, 12, 10), new BigDecimal("1500.00"), StatusFatura.PAGA, cartaoCredito2);
             faturaCartaoRepo.save(faturaCartao1);
             faturaCartaoRepo.save(faturaCartao2);
 

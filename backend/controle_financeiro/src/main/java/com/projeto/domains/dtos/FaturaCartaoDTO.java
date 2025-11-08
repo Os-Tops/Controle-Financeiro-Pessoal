@@ -30,11 +30,6 @@ public class FaturaCartaoDTO {
     @Column(nullable = false)
     private LocalDate dataVencimentoFatura = LocalDate.now();
 
-    @NotNull(message = "Valor unitário é obrigatório")
-    @Digits(integer = 12, fraction = 2, message = "Valor unitário deve ter no máximo 12 inteiros e 2 decimais")
-    @PositiveOrZero(message = "Valor unitário não pode ser negativo")
-    private BigDecimal valorUnitario;
-
     @Digits(integer = 12, fraction = 3, message = "Valor total deve ter no máximo 12 inteiros e 3 decimais")
     @PositiveOrZero(message = "Valor total não pode ser negativo")
     private BigDecimal valorTotal;
@@ -50,13 +45,12 @@ public class FaturaCartaoDTO {
     }
 
     public FaturaCartaoDTO(Long id, LocalDate competencia, LocalDate dataFechamentoFatura,
-                           LocalDate dataVencimentoFatura, BigDecimal valorUnitario,
-                           BigDecimal valorTotal, int statusFatura, Integer cartaoCreditoId) {
+                           LocalDate dataVencimentoFatura,BigDecimal valorTotal, int statusFatura,
+                           Integer cartaoCreditoId) {
         this.id = id;
         this.competencia = competencia;
         this.dataFechamentoFatura = dataFechamentoFatura;
         this.dataVencimentoFatura = dataVencimentoFatura;
-        this.valorUnitario = valorUnitario;
         this.valorTotal = valorTotal;
         this.statusFatura = statusFatura;
         this.cartaoCreditoId = cartaoCreditoId;
@@ -92,14 +86,6 @@ public class FaturaCartaoDTO {
 
     public void setDataVencimentoFatura(LocalDate dataVencimentoFatura) {
         this.dataVencimentoFatura = dataVencimentoFatura;
-    }
-
-    public BigDecimal getValorUnitario() {
-        return valorUnitario;
-    }
-
-    public void setValorUnitario(BigDecimal valorUnitario) {
-        this.valorUnitario = valorUnitario;
     }
 
     public BigDecimal getValorTotal() {
