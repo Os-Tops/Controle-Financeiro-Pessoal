@@ -29,7 +29,7 @@ public class CentroCusto {
     @Column(nullable=false, length=120)
     private String nome;
 
-    @NotBlank
+    @NotNull
     @Column(nullable=false, length=120)
     private int codigo;
 

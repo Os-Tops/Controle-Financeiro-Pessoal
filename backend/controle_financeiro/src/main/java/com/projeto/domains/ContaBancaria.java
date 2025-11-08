@@ -31,11 +31,11 @@ public class ContaBancaria {
     @Column(nullable=false, length=100)
     private String instituicao;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false)
     private int agencia;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false)
     private int numero;
 

@@ -49,7 +49,7 @@ public class FaturaCartao {
     private StatusFatura statusFatura;
 
     @NotBlank
-    @Column(nullable=false, length=100)
+    @Column(nullable = false, length = 100)
     private String instituicao;
 
 
@@ -60,13 +60,14 @@ public class FaturaCartao {
     public FaturaCartao() {
     }
 
-    public FaturaCartao(Long id, LocalDate competencia, LocalDate dataFechamento, LocalDate dataVencimento, BigDecimal valorTotal, StatusFatura statusFatura, CartaoCredito cartaoCredito) {
+    public FaturaCartao(Long id, LocalDate competencia, LocalDate dataFechamento, LocalDate dataVencimento, BigDecimal valorTotal, StatusFatura statusFatura, String instituicao, CartaoCredito cartaoCredito) {
         this.id = id;
         this.competencia = competencia;
         this.dataFechamento = dataFechamento;
         this.dataVencimento = dataVencimento;
         this.valorTotal = valorTotal;
         this.statusFatura = statusFatura;
+        this.instituicao = instituicao;
         this.cartaoCredito = cartaoCredito;
     }
 
@@ -116,6 +117,14 @@ public class FaturaCartao {
 
     public void setStatusFatura(StatusFatura statusFatura) {
         this.statusFatura = statusFatura;
+    }
+
+    public String getInstituicao() {
+        return instituicao;
+    }
+
+    public void setInstituicao(String instituicao) {
+        this.instituicao = instituicao;
     }
 
     public CartaoCredito getCartaoCredito() {
