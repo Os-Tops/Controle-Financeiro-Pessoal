@@ -78,6 +78,7 @@ public class Lancamento {
     @JoinColumn(name = "idCentroCusto", nullable = false)
     private CentroCusto centroCusto;
 
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idEntidade", nullable = false)
     private Entidade entidade;

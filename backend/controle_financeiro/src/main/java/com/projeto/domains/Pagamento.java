@@ -55,7 +55,7 @@ public class Pagamento {
         this.valorPago = valorPago;
         this.observacao = observacao;
         this.contaBancaria = contaBancaria;
-        this.lancamento = new Lancamento();
+        this.lancamento = lancamento;
     }
 
     public Long getId() {

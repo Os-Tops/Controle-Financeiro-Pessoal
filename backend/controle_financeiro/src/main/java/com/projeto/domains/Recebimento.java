@@ -56,7 +56,7 @@ public class Recebimento {
         this.valorRecebido = valorRecebido;
         this.observacao = observacao;
         this.contaBancaria = contaBancaria;
-        this.lancamento = new Lancamento();
+        this.lancamento = lancamento;
     }
 
     public Long getId() {
