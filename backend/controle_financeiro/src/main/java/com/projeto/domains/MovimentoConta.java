@@ -1,7 +1,7 @@
 package com.projeto.domains;
 
-import com.projeto.domains.enums.Status;
-import com.projeto.infra.StatusConverter;
+import com.projeto.domains.enums.TipoTransacao;
+import com.projeto.infra.TipoTransacaoConverter;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -40,9 +40,9 @@ public class MovimentoConta {
     @Column(nullable=false, length=100)
     private String historico;
 
-    @Convert(converter = StatusConverter.class)
+    @Convert(converter = TipoTransacaoConverter.class)
     @Column(name = "status", nullable = false)
-    private Status status;
+    private TipoTransacao tipoTransacao;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idConta", nullable = false)
@@ -51,15 +51,17 @@ public class MovimentoConta {
     public MovimentoConta() {
     }
 
-    public MovimentoConta(Long id, LocalDate dataMovimento, BigDecimal valor,
-                          String historico, Status status, ContaBancaria contaBancaria) {
+    public MovimentoConta(Long id, LocalDate dataMovimento,
+                          BigDecimal valor, String historico,
+                          TipoTransacao tipoTransacao, ContaBancaria contaBancaria) {
         this.id = id;
         this.dataMovimento = dataMovimento;
         this.valor = valor;
         this.historico = historico;
-        this.status = status;
+        this.tipoTransacao = tipoTransacao;
         this.contaBancaria = contaBancaria;
     }
+
 
     public Long getId() {
         return id;
@@ -67,14 +69,6 @@ public class MovimentoConta {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public LocalDate getDataMovimento() {
-        return dataMovimento;
-    }
-
-    public void setDataMovimento(LocalDate dataMovimento) {
-        this.dataMovimento = dataMovimento;
     }
 
     public BigDecimal getValor() {
@@ -85,6 +79,14 @@ public class MovimentoConta {
         this.valor = valor;
     }
 
+    public LocalDate getDataMovimento() {
+        return dataMovimento;
+    }
+
+    public void setDataMovimento(LocalDate dataMovimento) {
+        this.dataMovimento = dataMovimento;
+    }
+
     public String getHistorico() {
         return historico;
     }
@@ -93,12 +95,12 @@ public class MovimentoConta {
         this.historico = historico;
     }
 
-    public Status getStatus() {
-        return status;
+    public TipoTransacao getTipoTransacao() {
+        return tipoTransacao;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setTipoTransacao(TipoTransacao tipoTransacao) {
+        this.tipoTransacao = tipoTransacao;
     }
 
     public ContaBancaria getContaBancaria() {

@@ -11,12 +11,7 @@ import com.projeto.domains.ContaBancaria;
 import com.projeto.domains.CentroCusto;
 import com.projeto.domains.CartaoCredito;
 import com.projeto.domains.Usuario;
-import com.projeto.domains.enums.Status;
-import com.projeto.domains.enums.StatusLancamento;
-import com.projeto.domains.enums.MeioPagamento;
-import com.projeto.domains.enums.TipoLancamento;
-import com.projeto.domains.enums.StatusFatura;
-import com.projeto.domains.enums.StatusCartao;
+import com.projeto.domains.enums.*;
 import com.projeto.repositories.TransferenciaRepository;
 import com.projeto.repositories.RecebimentoRepository;
 import com.projeto.repositories.PagamentoRepository;
@@ -136,8 +131,8 @@ public class DBService {
             pagamentoRepo.save(pagamento2);
 
             // Criar movimentos de conta
-            MovimentoConta movimento1 = new MovimentoConta(null, LocalDate.of(2025, 11, 6), new BigDecimal("300.00"), "Movimento bancário", Status.ATIVA, conta1);
-            MovimentoConta movimento2 = new MovimentoConta(null, LocalDate.of(2025, 11, 7), new BigDecimal("400.00"), "Movimento de débito", Status.INATIVA, conta2);
+            MovimentoConta movimento1 = new MovimentoConta(null, LocalDate.of(2025, 11, 6), new BigDecimal("300.00"), "Movimento bancário", TipoTransacao.CREDITO, conta1);
+            MovimentoConta movimento2 = new MovimentoConta(null, LocalDate.of(2025, 11, 7), new BigDecimal("400.00"), "Movimento de débito", TipoTransacao.DEBITO, conta2);
             movimentoContaRepo.save(movimento1);
             movimentoContaRepo.save(movimento2);
 
