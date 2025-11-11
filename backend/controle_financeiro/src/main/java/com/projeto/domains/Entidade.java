@@ -61,11 +61,11 @@ public class Entidade {
         this.nome = nome;
     }
 
-    public String getdocumento() {
+    public String getDocumento() {
         return documento;
     }
 
-    public void setdocumento(String documento) {
+    public void setDocumento(String documento) {
         this.documento = documento;
     }
 

@@ -1,9 +1,6 @@
 package com.projeto.domains.dtos;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class CentroCustoDTO {
 
@@ -24,14 +21,19 @@ public class CentroCustoDTO {
     @NotNull(message = "Usuario é obrigatório")
     private Integer usuarioId;
 
+    @Min(value = 0, message = "Status inválido: use 0 (ATIVO) ou 1 (INATIVO)")
+    @Max(value = 1, message = "Status inválido: use 0 (ATIVO) ou 1 (INATIVO)")
+    private Integer status;
+
     public CentroCustoDTO() {
     }
 
-    public CentroCustoDTO(Long id, String nome, Integer codigo, Integer usuarioId) {
+    public CentroCustoDTO(Long id, String nome, Integer codigo, Integer usuarioId, Integer status) {
         this.id = id;
         this.nome = nome;
         this.codigo = codigo;
         this.usuarioId = usuarioId;
+        this.status = status;
     }
 
     public Long getId() {
@@ -65,4 +67,8 @@ public class CentroCustoDTO {
     public void setUsuarioId(Integer usuarioId) {
         this.usuarioId = usuarioId;
     }
+
+    public Integer getStatus() { return status; }
+
+    public void setStatus(Integer status) {  this.status = status; }
 }
