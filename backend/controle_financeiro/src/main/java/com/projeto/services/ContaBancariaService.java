@@ -1,12 +1,9 @@
 package com.projeto.services;
 
-import com.projeto.domains.CartaoCredito;
 import com.projeto.domains.ContaBancaria;
-import com.projeto.domains.dtos.CartaoCreditoDTO;
+import com.projeto.domains.Usuario;
 import com.projeto.domains.dtos.ContaBancariaDTO;
-import com.projeto.mappers.CartaoCreditoMapper;
 import com.projeto.mappers.ContaBancariaMapper;
-import com.projeto.repositories.CartaoCreditoRepository;
 import com.projeto.repositories.UsuarioRepository;
 import com.projeto.repositories.ContaBancariaRepository;
 import com.projeto.services.exceptions.ObjectNotFoundException;
@@ -58,14 +55,14 @@ public class ContaBancariaService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ContaBancariaDTO> findAllByUsuario(Integer usuarioId, Pageable pageable) {
+    public Page<ContaBancariaDTO> findAllByUsuario(Long usuarioId, Pageable pageable) {
         if (usuarioId == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "usuarioId é obrigatório");
         }
 
-        // valida existência do grupo para erro claro
-        if (!usuarioRepo.existsById(Long.valueOf(usuarioId))) {
-            throw new ObjectNotFoundException("Usuario não encontrado: id=" + usuarioId);
+        // valida existência do usuário para erro claro
+        if (!usuarioRepo.existsById(usuarioId)) {
+            throw new ObjectNotFoundException("Usuário não encontrado: id=" + usuarioId);
         }
 
         final Pageable effective;
@@ -78,12 +75,95 @@ public class ContaBancariaService {
                     pageable.getSort()
             );
         }
+
         Page<ContaBancaria> page = contaBancariaRepo.findByUsuario_Id(usuarioId, effective);
         return ContaBancariaMapper.toDtoPage(page);
     }
 
     @Transactional(readOnly = true)
-    public List<ContaBancariaDTO> findAllByUsuario(Integer usuarioId) {
+    public List<ContaBancariaDTO> findAllByUsuario(Long usuarioId) {
         return findAllByUsuario(usuarioId, Pageable.unpaged()).getContent();
+    }
+
+    @Transactional(readOnly = true)
+    public ContaBancariaDTO findById(Long id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id da Conta Bancária é obrigatório");
+        }
+
+        return contaBancariaRepo.findById(id)
+                .map(ContaBancariaMapper::toDto)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Conta Bancária não encontrada: id=" + id));
+    }
+
+    @Transactional
+    public ContaBancariaDTO create(ContaBancariaDTO contaBancariaDTO) {
+
+        if (contaBancariaDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados da conta bancária são obrigatórios");
+        }
+
+        if (contaBancariaDTO.getUsuarioId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do usuário é obrigatório");
+        }
+
+        Usuario usuario = usuarioRepo.findById(contaBancariaDTO.getUsuarioId())
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Usuário não encontrado: id=" + contaBancariaDTO.getUsuarioId())
+                );
+
+        contaBancariaDTO.setId(null);
+        ContaBancaria contaBancaria;
+        try {
+            contaBancaria = ContaBancariaMapper.toEntity(contaBancariaDTO, usuario);
+        } catch (IllegalArgumentException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return ContaBancariaMapper.toDto(contaBancariaRepo.save(contaBancaria));
+    }
+
+    @Transactional
+    public ContaBancariaDTO update(Long id, ContaBancariaDTO contaBancariaDTO) {
+
+        if (contaBancariaDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados da conta bancária são obrigatórios");
+        }
+
+        if (contaBancariaDTO.getUsuarioId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do usuário é obrigatório");
+        }
+
+        Usuario usuario = usuarioRepo.findById(contaBancariaDTO.getUsuarioId())
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Usuário não encontrado: id=" + contaBancariaDTO.getUsuarioId())
+                );
+
+        ContaBancaria contaBancaria = contaBancariaRepo.findById(id)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Conta bancária não encontrada: id=" + id));
+
+        contaBancariaDTO.setId(id);
+        try {
+            contaBancaria = ContaBancariaMapper.toEntity(contaBancariaDTO, usuario);
+        } catch (IllegalArgumentException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return ContaBancariaMapper.toDto(contaBancariaRepo.save(contaBancaria));
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id é obrigatório");
+        }
+
+        ContaBancaria contaBancaria = contaBancariaRepo.findById(id)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Conta bancária não encontrada: id=" + id));
+
+        contaBancariaRepo.delete(contaBancaria);
     }
 }

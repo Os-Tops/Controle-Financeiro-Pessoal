@@ -1,5 +1,6 @@
 package com.projeto.services;
 
+import com.projeto.domains.ContaBancaria;
 import com.projeto.domains.MovimentoConta;
 import com.projeto.domains.dtos.MovimentoContaDTO;
 import com.projeto.mappers.MovimentoContaMapper;
@@ -76,7 +77,8 @@ public class MovimentoContaService {
             );
         }
 
-        Page<MovimentoConta> page = movimentoContaRepo.findByConta_Id(contaId, effective);
+        Page<MovimentoConta> page =
+                movimentoContaRepo.findByContaBancaria_Id(contaId.longValue(), effective);
         return MovimentoContaMapper.toDtoPage(page);
     }
     /** Não paginado, filtrando por grupo (reaproveita o paginado com unpaged) */
@@ -84,4 +86,90 @@ public class MovimentoContaService {
     public List<MovimentoContaDTO> findAllByConta(Integer contaId) {
         return findAllByConta(contaId, Pageable.unpaged()).getContent();
     }
+
+    @Transactional(readOnly = true)
+    public MovimentoContaDTO findById(Long id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id do Movimento Conta é obrigatório");
+        }
+
+        return movimentoContaRepo.findById(id)
+                .map(MovimentoContaMapper::toDto)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Movimento Conta não encontrado: id=" + id));
+    }
+
+
+    @Transactional
+    public MovimentoContaDTO create(MovimentoContaDTO movimentoContaDTO) {
+
+
+        if (movimentoContaDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados do produto são obrigatórios");
+        }
+
+        if (movimentoContaDTO.getContaBancariaId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id da conta bancária é obrigatório");
+        }
+
+        ContaBancaria contaBancaria = contaBancariaRepo.findById(movimentoContaDTO.getContaBancariaId())
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Grupo de Produto não encontrado: id=" + movimentoContaDTO.getContaBancariaId())
+                );
+
+        movimentoContaDTO.setId(null);
+        MovimentoConta movimentoConta;
+        try {
+            movimentoConta = MovimentoContaMapper.toEntity(movimentoContaDTO, contaBancaria);
+        } catch (IllegalArgumentException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return MovimentoContaMapper.toDto(movimentoContaRepo.save(movimentoConta));
+    }
+
+    @Transactional
+    public MovimentoContaDTO update(Long id, MovimentoContaDTO movimentoContaDTO) {
+
+
+        if (movimentoContaDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados do produto são obrigatórios");
+        }
+
+        if (movimentoContaDTO.getContaBancariaId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do grupo de produto é obrigatório");
+        }
+
+        ContaBancaria contaBancaria = contaBancariaRepo.findById(movimentoContaDTO.getContaBancariaId())
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Grupo de Produto não encontrado: id=" + movimentoContaDTO.getContaBancariaId())
+                );
+
+        MovimentoConta movimentoConta = movimentoContaRepo.findById(id)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Produto não encontrado: id=" + id));
+
+        movimentoContaDTO.setId(id);
+        try {
+            movimentoConta = MovimentoContaMapper.toEntity(movimentoContaDTO, contaBancaria);
+        } catch (IllegalArgumentException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return MovimentoContaMapper.toDto(movimentoContaRepo.save(movimentoConta));
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id é obrigatório");
+        }
+
+        MovimentoConta movimentoConta = movimentoContaRepo.findById(id)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Grupo de Produto não encontrado: id=" + id));
+
+        movimentoContaRepo.delete(movimentoConta);
+    }
+
 }

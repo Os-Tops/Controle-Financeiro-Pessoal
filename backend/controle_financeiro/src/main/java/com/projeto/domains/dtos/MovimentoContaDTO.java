@@ -36,14 +36,14 @@ public class MovimentoContaDTO {
     private int tipoTransacao;
 
     @NotNull(message = "Conta bancária é obrigatória")
-    private Integer contaBancariaId;
+    private Long contaBancariaId;
 
     public MovimentoContaDTO() {
     }
 
     public MovimentoContaDTO(Long id, LocalDate dataMovimento,
                              BigDecimal valor, String historico, int tipoTransacao,
-                             Integer contaBancariaId) {
+                             Long contaBancariaId) {
         this.id = id;
         this.dataMovimento = dataMovimento;
         this.valor = valor;
@@ -92,11 +92,11 @@ public class MovimentoContaDTO {
         this.tipoTransacao = tipoTransacao;
     }
 
-    public Integer getContaBancariaId() {
+    public Long getContaBancariaId() {
         return contaBancariaId;
     }
 
-    public void setContaBancariaId(Integer contaBancariaId) {
+    public void setContaBancariaId(Long contaBancariaId) {
         this.contaBancariaId = contaBancariaId;
     }
 
