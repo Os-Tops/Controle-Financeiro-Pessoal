@@ -25,7 +25,7 @@ public class ContaBancariaMapper {
 
         Long idDto = e.getId();
 
-        Integer usuarioId = Math.toIntExact((e.getUsuario() == null) ? null : e.getUsuario().getId());
+        Long usuarioId = (e.getUsuario() == null) ? null : e.getUsuario().getId();
         int statusInt = (e.getStatus() == null) ? 0 : e.getStatus().getId();
 
         return new ContaBancariaDTO(
@@ -36,8 +36,8 @@ public class ContaBancariaMapper {
                 e.getApelido(),
                 e.getSaldoInicial(),
                 e.getDataSaldoInicial(),
-                usuarioId,
-                statusInt
+                statusInt,
+                usuarioId
         );
     }
     public static List<ContaBancariaDTO> toDtoList(Collection<ContaBancaria> entities) {
@@ -69,7 +69,7 @@ public class ContaBancariaMapper {
 
         return e;
     }
-    public static ContaBancaria toEntity(ContaBancariaDTO dto, Function<Integer, Usuario> grupoResolver) {
+    public static ContaBancaria toEntity(ContaBancariaDTO dto, Function<Long, Usuario> grupoResolver) {
         if (dto == null) return null;
         Usuario grupo = (dto.getUsuarioId() == null) ? null : grupoResolver.apply(dto.getUsuarioId());
         return toEntity(dto, grupo);
@@ -86,7 +86,7 @@ public class ContaBancariaMapper {
         target.setUsuario(usuario);
         target.setStatus(Status.toEnum(dto.getStatus()));
     }
-    public static void copyToEntity(ContaBancariaDTO dto, ContaBancaria target, Function<Integer, Usuario> grupoResolver) {
+    public static void copyToEntity(ContaBancariaDTO dto, ContaBancaria target, Function<Long, Usuario> grupoResolver) {
         if (dto == null || target == null) return;
         Usuario grupo = (dto.getUsuarioId() == null) ? null : grupoResolver.apply(dto.getUsuarioId());
         copyToEntity(dto, target, grupo);

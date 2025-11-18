@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MovimentoContaRepository extends JpaRepository<MovimentoConta, Long> {
-    Page<MovimentoConta> findByConta_Id(Integer contaId, Pageable pageable);
+    Page<MovimentoConta> findByContaBancaria_Id(Long contaId, Pageable pageable);
 }

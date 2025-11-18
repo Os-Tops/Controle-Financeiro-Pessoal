@@ -10,5 +10,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TransferenciaRepository extends JpaRepository<Transferencia, Long>  {
-    Page<Transferencia> findByConta_Id(Integer contaId, Pageable pageable);
+    Page<Transferencia> findByContaOrigem_IdOrContaDestino_Id(
+            Long contaOrigemId,
+            Long contaDestinoId,
+            Pageable pageable
+    );
 }

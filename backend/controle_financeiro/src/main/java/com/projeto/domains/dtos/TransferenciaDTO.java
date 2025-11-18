@@ -18,10 +18,10 @@ public class TransferenciaDTO {
     private Long id;
 
     @NotNull(message = "Conta de origem é obrigatória")
-    private Integer contaOrigemId;
+    private Long contaOrigemId;
 
     @NotNull(message = "Conta de destino é obrigatória")
-    private Integer contaDestinoId;
+    private Long contaDestinoId;
 
     @NotBlank(message = "Data é obrigatório")
     @JsonFormat(pattern = "dd")
@@ -39,8 +39,8 @@ public class TransferenciaDTO {
     public TransferenciaDTO() {
     }
 
-    public TransferenciaDTO(Long id, Integer contaOrigemId,
-                            Integer contaDestinoId, LocalDate data,
+    public TransferenciaDTO(Long id, Long contaOrigemId,
+                            Long contaDestinoId, LocalDate data,
                             BigDecimal valor, String observacao) {
         this.id = id;
         this.contaOrigemId = contaOrigemId;
@@ -58,19 +58,19 @@ public class TransferenciaDTO {
         this.id = id;
     }
 
-    public Integer getContaOrigemId() {
+    public Long getContaOrigemId() {
         return contaOrigemId;
     }
 
-    public void setContaOrigemId(Integer contaOrigemId) {
+    public void setContaOrigemId(Long contaOrigemId) {
         this.contaOrigemId = contaOrigemId;
     }
 
-    public Integer getContaDestinoId() {
+    public Long getContaDestinoId() {
         return contaDestinoId;
     }
 
-    public void setContaDestinoId(Integer contaDestinoId) {
+    public void setContaDestinoId(Long contaDestinoId) {
         this.contaDestinoId = contaDestinoId;
     }
 

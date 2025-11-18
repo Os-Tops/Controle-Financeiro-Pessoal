@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContaBancariaRepository extends JpaRepository<ContaBancaria, Long> {
-    Page<ContaBancaria> findByUsuario_Id(Integer usuarioId, Pageable pageable);
+    Page<ContaBancaria> findByUsuario_Id(Long usuarioId, Pageable pageable);
 }

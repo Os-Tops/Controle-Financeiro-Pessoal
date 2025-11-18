@@ -43,14 +43,14 @@ public class ContaBancariaDTO {
     private int status;
 
     @NotNull(message = "Usuario é obrigatório")
-    private Integer usuarioId;
+    private Long usuarioId;
 
     public ContaBancariaDTO() {
     }
 
     public ContaBancariaDTO(Long id, String instituicao, Integer agencia,
                             Integer numero, String apelido, BigDecimal saldoInicial,
-                            LocalDate dataSaldoInicial, int status, Integer usuarioId) {
+                            LocalDate dataSaldoInicial, int status, Long usuarioId) {
         this.id = id;
         this.instituicao = instituicao;
         this.agencia = agencia;
@@ -126,11 +126,11 @@ public class ContaBancariaDTO {
         this.status = status;
     }
 
-    public Integer getUsuarioId() {
+    public Long getUsuarioId() {
         return usuarioId;
     }
 
-    public void setUsuarioId(Integer usuarioId) {
+    public void setUsuarioId(Long usuarioId) {
         this.usuarioId = usuarioId;
     }
 }

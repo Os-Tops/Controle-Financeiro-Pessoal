@@ -22,17 +22,11 @@ public class TransferenciaMapper {
     public static TransferenciaDTO toDto(Transferencia e) {
         if (e == null) return null;
 
-        Long idDto = e.getId();
-
-        // conversão segura para Integer (evita NPE)
-        Long contaOrigemIdLong  = (e.getContaOrigem()  == null) ? null : e.getContaOrigem().getId();
-        Long contaDestinoIdLong = (e.getContaDestino() == null) ? null : e.getContaDestino().getId();
-
-        Integer contaOrigemId  = (contaOrigemIdLong  == null) ? null : Math.toIntExact(contaOrigemIdLong);
-        Integer contaDestinoId = (contaDestinoIdLong == null) ? null : Math.toIntExact(contaDestinoIdLong);
+        Long contaOrigemId  = (e.getContaOrigem()  == null) ? null : e.getContaOrigem().getId();
+        Long contaDestinoId = (e.getContaDestino() == null) ? null : e.getContaDestino().getId();
 
         return new TransferenciaDTO(
-                idDto,
+                e.getId(),
                 contaOrigemId,
                 contaDestinoId,
                 e.getData(),
@@ -74,13 +68,18 @@ public class TransferenciaMapper {
         return e;
     }
 
-    // Versão que resolve as contas a partir dos IDs do DTO
+    // Versão que resolve as contas a partir dos IDs do DTO (agora Long)
     public static Transferencia toEntity(TransferenciaDTO dto,
-                                         Function<Integer, ContaBancaria> contaResolver) {
+                                         Function<Long, ContaBancaria> contaResolver) {
         if (dto == null) return null;
 
-        ContaBancaria contaOrigem = (dto.getContaOrigemId()  == null) ? null : contaResolver.apply(dto.getContaOrigemId());
-        ContaBancaria contaDestino = (dto.getContaDestinoId() == null) ? null : contaResolver.apply(dto.getContaDestinoId());
+        ContaBancaria contaOrigem  = (dto.getContaOrigemId()  == null)
+                ? null
+                : contaResolver.apply(dto.getContaOrigemId());
+
+        ContaBancaria contaDestino = (dto.getContaDestinoId() == null)
+                ? null
+                : contaResolver.apply(dto.getContaDestinoId());
 
         return toEntity(dto, contaOrigem, contaDestino);
     }
@@ -102,11 +101,16 @@ public class TransferenciaMapper {
 
     public static void copyToEntity(TransferenciaDTO dto,
                                     Transferencia target,
-                                    Function<Integer, ContaBancaria> contaResolver) {
+                                    Function<Long, ContaBancaria> contaResolver) {
         if (dto == null || target == null) return;
 
-        ContaBancaria contaOrigem  = (dto.getContaOrigemId()  == null) ? null : contaResolver.apply(dto.getContaOrigemId());
-        ContaBancaria contaDestino = (dto.getContaDestinoId() == null) ? null : contaResolver.apply(dto.getContaDestinoId());
+        ContaBancaria contaOrigem  = (dto.getContaOrigemId()  == null)
+                ? null
+                : contaResolver.apply(dto.getContaOrigemId());
+
+        ContaBancaria contaDestino = (dto.getContaDestinoId() == null)
+                ? null
+                : contaResolver.apply(dto.getContaDestinoId());
 
         copyToEntity(dto, target, contaOrigem, contaDestino);
     }
