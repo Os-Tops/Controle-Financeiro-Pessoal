@@ -17,7 +17,6 @@ import java.util.List;
 @Validated
 @RestController
 @RequestMapping("/api/contabancaria")
-
 public class ContaBancariaResource {
 
     private final ContaBancariaService service;
@@ -26,7 +25,7 @@ public class ContaBancariaResource {
         this.service = service;
     }
 
-
+    // GET paginado; filtro por usuário opcional (?usuarioId=)
     @GetMapping
     public ResponseEntity<Page<ContaBancariaDTO>> list(
             @RequestParam(required = false) Long usuarioId,
@@ -34,10 +33,34 @@ public class ContaBancariaResource {
 
         Page<ContaBancariaDTO> page = (usuarioId != null)
                 ? service.findAllByUsuario(usuarioId, pageable) // paginado + filtro
-                : service.findAll(pageable);                // paginado sem filtro (real no DB)
+                : service.findAll(pageable);                    // paginado sem filtro (real no DB)
 
         return ResponseEntity.ok(page);
     }
+
+    // GET não paginado; filtro por usuário opcional (?usuarioId=)
+    @GetMapping("/all")
+    public ResponseEntity<List<ContaBancariaDTO>> listAll(
+            @RequestParam(required = false) Long usuarioId) {
+
+        List<ContaBancariaDTO> body = (usuarioId != null)
+                ? service.findAllByUsuario(usuarioId) // não paginado + filtro
+                : service.findAll();                  // não paginado sem filtro
+
+        return ResponseEntity.ok(body);
+    }
+
+    // GET paginado por usuário via path /usuario/{usuarioId}
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<Page<ContaBancariaDTO>> findAllByUsuario(
+            @PathVariable Long usuarioId,
+            Pageable pageable
+    ) {
+        Page<ContaBancariaDTO> page = service.findAllByUsuario(usuarioId, pageable);
+        return ResponseEntity.ok(page);
+    }
+
+    // GET por id (uma conta específica)
     @GetMapping("/{id}")
     public ResponseEntity<ContaBancariaDTO> findById(@PathVariable Long id) {
         ContaBancariaDTO dto = service.findById(id);
@@ -55,12 +78,14 @@ public class ContaBancariaResource {
                 .toUri();
         return ResponseEntity.created(location).body(created);
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<ContaBancariaDTO> update(@PathVariable Long id,
-                                                    @RequestBody @Validated(ContaBancariaDTO.Update.class) ContaBancariaDTO dto) {
+                                                   @RequestBody @Validated(ContaBancariaDTO.Update.class) ContaBancariaDTO dto) {
         dto.setId(id);
         return ResponseEntity.ok(service.update(id, dto));
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
