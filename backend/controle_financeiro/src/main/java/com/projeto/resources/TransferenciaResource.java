@@ -16,7 +16,7 @@ import java.util.List;
 
 @Validated
 @RestController
-@RequestMapping("/api/transferencia")
+@RequestMapping("/api/v1/transferencia")
 public class TransferenciaResource {
 
     private final TransferenciaService service;

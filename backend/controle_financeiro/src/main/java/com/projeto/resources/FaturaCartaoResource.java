@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/faturacartao")
+@RequestMapping("/api/v1/cartoes/{id}/faturas")
 public class FaturaCartaoResource {
 
     private final FaturaCartaoService service;

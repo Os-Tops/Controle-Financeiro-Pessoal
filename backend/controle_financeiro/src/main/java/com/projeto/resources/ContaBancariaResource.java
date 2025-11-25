@@ -16,7 +16,7 @@ import java.util.List;
 
 @Validated
 @RestController
-@RequestMapping("/api/contabancaria")
+@RequestMapping("/api/v1/contas")
 public class ContaBancariaResource {
 
     private final ContaBancariaService service;
