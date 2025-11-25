@@ -16,7 +16,7 @@ import java.util.List;
 
 @Validated
 @RestController
-@RequestMapping("/api/movimentoconta")
+@RequestMapping("/api/v1/movimentoconta")
 public class MovimentoContaResource {
 
     private final MovimentoContaService service;

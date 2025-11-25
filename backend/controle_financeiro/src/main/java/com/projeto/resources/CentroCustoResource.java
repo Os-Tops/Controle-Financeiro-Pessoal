@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/centrocusto")
+@RequestMapping("/api/v1/centrocusto")
 public class CentroCustoResource {
 
     private final CentroCustoService service;
