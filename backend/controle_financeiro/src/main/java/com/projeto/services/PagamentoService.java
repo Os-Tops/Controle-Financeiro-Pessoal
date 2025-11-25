@@ -34,6 +34,7 @@ public class PagamentoService {
         this.contaBancariaRepo = contaBancariaRepo;
     }
 
+    /** Não paginado, sem filtro */
     @Transactional(readOnly = true)
     public List<PagamentoDTO> findAll() {
         return PagamentoMapper.toDtoList(pagamentoRepo.findAll());
@@ -57,6 +58,7 @@ public class PagamentoService {
         return PagamentoMapper.toDtoPage(page);
     }
 
+    /** Paginado, filtrando por lancamento */
     @Transactional(readOnly = true)
     public Page<PagamentoDTO> findAllByLancamento(Long lancamentoId, Pageable pageable) {
         if (lancamentoId == null) {
@@ -87,6 +89,7 @@ public class PagamentoService {
         return findAllByLancamento(lancamentoId, Pageable.unpaged()).getContent();
     }
 
+    /** Paginado, filtrando por contaBancaria */
     @Transactional(readOnly = true)
     public Page<PagamentoDTO> findAllByContaBancaria(Long contaBancariaId, Pageable pageable) {
         if (contaBancariaId == null) {
@@ -110,5 +113,10 @@ public class PagamentoService {
         }
         Page<Pagamento> page = pagamentoRepo.findByContaBancaria_Id(contaBancariaId, effective);
         return PagamentoMapper.toDtoPage(page);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PagamentoDTO> findAllByContaBancaria(Long contaBancariaId) {
+        return findAllByContaBancaria(contaBancariaId, Pageable.unpaged()).getContent();
     }
 }

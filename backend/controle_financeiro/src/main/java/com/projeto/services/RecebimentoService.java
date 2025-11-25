@@ -1,6 +1,7 @@
 package com.projeto.services;
 
 import com.projeto.domains.Recebimento;
+import com.projeto.domains.dtos.PagamentoDTO;
 import com.projeto.domains.dtos.RecebimentoDTO;
 import com.projeto.mappers.RecebimentoMapper;
 import com.projeto.repositories.RecebimentoRepository;
@@ -34,6 +35,7 @@ public class RecebimentoService {
         this.contaBancariaRepo = contaBancariaRepo;
     }
 
+    /** Não paginado, sem filtro */
     @Transactional(readOnly = true)
     public List<RecebimentoDTO> findAll() {
         return RecebimentoMapper.toDtoList(recebimentoRepo.findAll());
@@ -57,6 +59,7 @@ public class RecebimentoService {
         return RecebimentoMapper.toDtoPage(page);
     }
 
+    /** Paginado, filtrando por lancamento */
     @Transactional(readOnly = true)
     public Page<RecebimentoDTO> findAllByLancamento(Long lancamentoId, Pageable pageable) {
         if (lancamentoId == null) {
@@ -87,6 +90,7 @@ public class RecebimentoService {
         return findAllByLancamento(lancamentoId, Pageable.unpaged()).getContent();
     }
 
+    /** Paginado, filtrando por contaBancaria */
     @Transactional(readOnly = true)
     public Page<RecebimentoDTO> findAllByContaBancaria(Long contaBancariaId, Pageable pageable) {
         if (contaBancariaId == null) {
@@ -110,5 +114,10 @@ public class RecebimentoService {
         }
         Page<Recebimento> page = recebimentoRepo.findByContaBancaria_Id(contaBancariaId, effective);
         return RecebimentoMapper.toDtoPage(page);
+    }
+
+    @Transactional(readOnly = true)
+    public List<RecebimentoDTO> findAllByContaBancaria(Long contaBancariaId) {
+        return findAllByContaBancaria(contaBancariaId, Pageable.unpaged()).getContent();
     }
 }
