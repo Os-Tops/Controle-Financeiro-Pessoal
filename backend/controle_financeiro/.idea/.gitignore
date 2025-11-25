@@ -9,3 +9,5 @@
 #logs
 ../controlefinanceiro_dev.log
 ../controlefinanceiro_test.log
+target/
+*.log
