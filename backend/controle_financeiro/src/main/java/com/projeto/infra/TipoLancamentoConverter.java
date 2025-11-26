@@ -6,7 +6,7 @@ import jakarta.persistence.Converter;
 public class TipoLancamentoConverter implements AttributeConverter<TipoLancamento, Integer> {
     @Override
     public Integer convertToDatabaseColumn(TipoLancamento tipoLancamento) {
-        return tipoLancamento == null ? null : -tipoLancamento.getId();
+        return tipoLancamento == null ? null : tipoLancamento.getId();
     }
     @Override
     public TipoLancamento convertToEntityAttribute(Integer dbValue) {return TipoLancamento.toEnum(dbValue);
