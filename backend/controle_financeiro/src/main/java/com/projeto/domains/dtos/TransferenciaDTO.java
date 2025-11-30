@@ -23,9 +23,8 @@ public class TransferenciaDTO {
     @NotNull(message = "Conta de destino é obrigatória")
     private Long contaDestinoId;
 
-    @NotBlank(message = "Data é obrigatório")
-    @JsonFormat(pattern = "dd")
-    @Column(nullable = false)
+    @NotNull(message = "Data é obrigatória")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate data = LocalDate.now();
 
     @Digits(integer = 12, fraction = 3, message = "Valor total deve ter no máximo 12 inteiros e 3 decimais")
