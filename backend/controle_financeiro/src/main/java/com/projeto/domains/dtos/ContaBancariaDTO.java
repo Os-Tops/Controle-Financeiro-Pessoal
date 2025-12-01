@@ -12,8 +12,8 @@ public class ContaBancariaDTO {
     public interface Create {}
     public interface Update {}
 
-    @Null(groups = CartaoCreditoDTO.Create.class, message = "Id deve ser omitido na criação")
-    @NotNull(groups = CartaoCreditoDTO.Update.class, message = "Id é obrigatório na atualização")
+    @Null(groups = Create.class, message = "Id deve ser omitido na criação")
+    @NotNull(groups = Update.class, message = "Id é obrigatório na atualização")
     private Long id;
 
     @NotBlank(message = "Instituição é obrigatória")

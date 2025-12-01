@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
+import java.time.LocalDate;
 
 import java.util.List;
 
@@ -220,4 +221,39 @@ public class TransferenciaService {
 
         transferenciaRepo.delete(transferencia);
     }
+
+    @Transactional(readOnly = true)
+    public List<TransferenciaDTO> findAllByContaAndPeriodo(LocalDate inicio,
+                                                           LocalDate fim,
+                                                           Long contaId) {
+
+        if (inicio == null || fim == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                    "Parâmetros 'inicio' e 'fim' são obrigatórios");
+        }
+
+        if (fim.isBefore(inicio)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                    "Data fim não pode ser anterior à data início");
+        }
+
+        if (contaId == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "contaId é obrigatório");
+        }
+
+        // valida existência da conta para erro claro
+        if (!contaBancariaRepo.existsById(contaId)) {
+            throw new ObjectNotFoundException("Conta bancária não encontrada: id=" + contaId);
+        }
+
+        // contaId pode ser origem OU destino, dentro do intervalo [inicio, fim]
+        List<Transferencia> lista = transferenciaRepo
+                .findByDataBetweenAndContaOrigem_IdOrDataBetweenAndContaDestino_Id(
+                        inicio, fim, contaId,
+                        inicio, fim, contaId
+                );
+
+        return TransferenciaMapper.toDtoList(lista);
+    }
+
 }

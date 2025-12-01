@@ -8,8 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import java.time.LocalDate;
 
 import java.net.URI;
 import java.util.List;
@@ -69,13 +71,15 @@ public class ContaBancariaResource {
 
     @PostMapping
     public ResponseEntity<ContaBancariaDTO> create(
-            @RequestBody @Validated(ContaBancariaDTO.Create.class) ContaBancariaDTO dto) {
-
+            @RequestBody @Validated(ContaBancariaDTO.Create.class) ContaBancariaDTO dto
+    ) {
         ContaBancariaDTO created = service.create(dto);
+
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(created.getId())
                 .toUri();
+
         return ResponseEntity.created(location).body(created);
     }
 
@@ -90,5 +94,17 @@ public class ContaBancariaResource {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/{id}/extrato")
+    public ResponseEntity<ContaBancariaDTO> obterExtrato(
+            @PathVariable Long id,
+            @RequestParam("inicio")
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate inicio,
+            @RequestParam("fim")
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fim,
+            @RequestParam(name = "modo", defaultValue = "contabilprojetado") String modo
+    ) {
+        ContaBancariaDTO extrato = service.gerarExtrato(id, inicio, fim, modo);
+        return ResponseEntity.ok(extrato);
     }
 }

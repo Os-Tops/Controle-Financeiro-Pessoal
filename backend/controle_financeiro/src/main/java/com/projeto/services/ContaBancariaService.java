@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
+import java.time.LocalDate;
 
 import java.util.List;
 
@@ -165,5 +166,32 @@ public class ContaBancariaService {
                         new ObjectNotFoundException("Conta bancária não encontrada: id=" + id));
 
         contaBancariaRepo.delete(contaBancaria);
+    }
+
+
+    @Transactional(readOnly = true)
+    public ContaBancariaDTO gerarExtrato(Long contaId,
+                                         LocalDate inicio,
+                                         LocalDate fim,
+                                         String modo) {
+
+        if (contaId == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id da Conta Bancária é obrigatório");
+        }
+        if (inicio == null || fim == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Parâmetros 'inicio' e 'fim' são obrigatórios");
+        }
+        if (fim.isBefore(inicio)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Data fim não pode ser anterior à data início");
+        }
+
+        ContaBancaria conta = contaBancariaRepo.findById(contaId)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Conta Bancária não encontrada: id=" + contaId)
+                );
+
+        // Por enquanto, só devolve os dados da conta.
+        // Depois você pode incluir saldos, lançamentos etc. numa DTO específica, se quiser.
+        return ContaBancariaMapper.toDto(conta);
     }
 }
