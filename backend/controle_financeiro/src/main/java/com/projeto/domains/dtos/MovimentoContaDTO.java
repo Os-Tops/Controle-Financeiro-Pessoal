@@ -18,7 +18,7 @@ public class MovimentoContaDTO {
     private Long id;
 
     @NotBlank(message = "Data do Movimento é obrigatório")
-    @JsonFormat(pattern = "dd")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
     private LocalDate dataMovimento = LocalDate.now();
 

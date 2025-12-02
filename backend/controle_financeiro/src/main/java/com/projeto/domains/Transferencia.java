@@ -25,11 +25,11 @@ public class Transferencia {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_transferencia")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idContaBancariaOrigem", nullable = false)
     private ContaBancaria contaOrigem ;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idContaBancariaDestino", nullable = false)
     private ContaBancaria contaDestino ;
 
