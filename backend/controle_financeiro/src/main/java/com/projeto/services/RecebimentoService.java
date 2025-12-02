@@ -120,4 +120,16 @@ public class RecebimentoService {
     public List<RecebimentoDTO> findAllByContaBancaria(Long contaBancariaId) {
         return findAllByContaBancaria(contaBancariaId, Pageable.unpaged()).getContent();
     }
+
+    @Transactional(readOnly = true)
+    public RecebimentoDTO findById(Integer id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id é obrigatório");
+        }
+
+        return recebimentoRepo.findById(Long.valueOf(id))
+                .map(RecebimentoMapper::toDto)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Recebimento não encontrado: id=" + id));
+    }
 }

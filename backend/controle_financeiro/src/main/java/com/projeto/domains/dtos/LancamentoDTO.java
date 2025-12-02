@@ -27,12 +27,12 @@ public class LancamentoDTO {
     private BigDecimal valor;
 
     @NotBlank(message = "Data da competência é obrigatória")
-    @JsonFormat(pattern = "dd")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
     private LocalDate dataCompetencia = LocalDate.now();
 
     @NotBlank(message = "Data de Vencimento é obrigatória")
-    @JsonFormat(pattern = "dd")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
     private LocalDate dataVencimento = LocalDate.now();
 
