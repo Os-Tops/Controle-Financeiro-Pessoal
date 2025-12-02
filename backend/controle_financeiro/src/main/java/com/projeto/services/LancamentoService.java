@@ -1,6 +1,6 @@
 package com.projeto.services;
 
-import com.projeto.domains.Lancamento;
+import com.projeto.domains.*;
 import com.projeto.domains.dtos.LancamentoDTO;
 import com.projeto.domains.enums.StatusLancamento;
 import com.projeto.domains.enums.TipoLancamento;
@@ -228,4 +228,162 @@ public class LancamentoService {
         return findAllByCartaoCredito(cartaoCreditoId, Pageable.unpaged()).getContent();
     }
 
+    @Transactional(readOnly = true)
+    public LancamentoDTO findById(Integer id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id é obrigatório");
+        }
+
+        return lancamentoRepo.findById(Long.valueOf(id))
+                .map(LancamentoMapper::toDto)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Lancamento não encontrado: id=" + id));
+    }
+
+    //Create
+    @Transactional
+    public LancamentoDTO create(LancamentoDTO lancamentoDTO) {
+
+
+        if (lancamentoDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados do lancamento são obrigatórios");
+        }
+
+        if (lancamentoDTO.getUsuarioId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do Usuário é obrigatório");
+        }
+
+        if (lancamentoDTO.getContaBancariaId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id da Conta Bancária é obrigatório");
+        }
+
+        if (lancamentoDTO.getCentroCustoId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do Centro de Custo é obrigatório");
+        }
+
+        if (lancamentoDTO.getEntidadeId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id da Entidade é obrigatório");
+        }
+
+        if (lancamentoDTO.getCartaoCreditoId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do Cartão de Crédito é obrigatório");
+        }
+
+        Usuario usuario = usuarioRepo.findById(Long.valueOf(lancamentoDTO.getUsuarioId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Usuário não encontrado: id=" + lancamentoDTO.getUsuarioId())
+                );
+
+        ContaBancaria contaBancaria = contaBancariaRepo.findById(Long.valueOf(lancamentoDTO.getContaBancariaId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Conta bancária não encontrada: id=" + lancamentoDTO.getContaBancariaId())
+                );
+
+        CentroCusto centroCusto = centroCustoRepo.findById(Long.valueOf(lancamentoDTO.getCentroCustoId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Centro de Custo não encontrado: id=" + lancamentoDTO.getCentroCustoId())
+                );
+
+        Entidade entidade = entidadeRepo.findById(Long.valueOf(lancamentoDTO.getEntidadeId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Entidade não encontrada: id=" + lancamentoDTO.getEntidadeId())
+                );
+
+        CartaoCredito cartaoCredito = cartaoCreditoRepo.findById(Long.valueOf(lancamentoDTO.getCartaoCreditoId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Cartão de Crédito não encontrado: id=" + lancamentoDTO.getCartaoCreditoId())
+                );
+
+        lancamentoDTO.setId(null);
+        Lancamento lancamento;
+        try{
+            lancamento = LancamentoMapper.toEntity(lancamentoDTO, usuario, contaBancaria, centroCusto, entidade, cartaoCredito);
+        } catch (IllegalArgumentException ex){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return LancamentoMapper.toDto(lancamentoRepo.save(lancamento));
+    }
+
+    //Update
+    @Transactional
+    public LancamentoDTO update(Long id, LancamentoDTO lancamentoDTO) {
+
+        if (lancamentoDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados do lancamento são obrigatórios");
+        }
+
+        if (lancamentoDTO.getUsuarioId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do Usuário é obrigatório");
+        }
+
+        if (lancamentoDTO.getContaBancariaId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id da Conta Bancária é obrigatório");
+        }
+
+        if (lancamentoDTO.getCentroCustoId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do Centro de Custo é obrigatório");
+        }
+
+        if (lancamentoDTO.getEntidadeId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id da Entidade é obrigatório");
+        }
+
+        if (lancamentoDTO.getCartaoCreditoId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do Cartão de Crédito é obrigatório");
+        }
+
+        Usuario usuario = usuarioRepo.findById(Long.valueOf(lancamentoDTO.getUsuarioId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Usuário não encontrado: id=" + lancamentoDTO.getUsuarioId())
+                );
+
+        ContaBancaria contaBancaria = contaBancariaRepo.findById(Long.valueOf(lancamentoDTO.getContaBancariaId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Conta bancária não encontrada: id=" + lancamentoDTO.getContaBancariaId())
+                );
+
+        CentroCusto centroCusto = centroCustoRepo.findById(Long.valueOf(lancamentoDTO.getCentroCustoId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Centro de Custo não encontrado: id=" + lancamentoDTO.getCentroCustoId())
+                );
+
+        Entidade entidade = entidadeRepo.findById(Long.valueOf(lancamentoDTO.getEntidadeId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Entidade não encontrada: id=" + lancamentoDTO.getEntidadeId())
+                );
+
+        CartaoCredito cartaoCredito = cartaoCreditoRepo.findById(Long.valueOf(lancamentoDTO.getCartaoCreditoId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Cartão de Crédito não encontrado: id=" + lancamentoDTO.getCartaoCreditoId())
+                );
+
+        Lancamento lancamento = lancamentoRepo.findById(Long.valueOf(lancamentoDTO.getId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Lancamento não encontrado: id=" + id));
+
+        lancamentoDTO.setId(id);
+        try{
+            lancamento = LancamentoMapper.toEntity(lancamentoDTO,usuario, contaBancaria, centroCusto, entidade, cartaoCredito);
+        } catch (IllegalArgumentException ex){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return LancamentoMapper.toDto(lancamentoRepo.save(lancamento));
+    }
+    
+    //Delete
+    @Transactional
+    public void delete(Long id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id é obrigatório");
+        }
+
+        Lancamento lancamento = lancamentoRepo.findById(id)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Lancamento não encontrado: id=" + id));
+
+        lancamentoRepo.delete(lancamento);
+    }
+    
 }

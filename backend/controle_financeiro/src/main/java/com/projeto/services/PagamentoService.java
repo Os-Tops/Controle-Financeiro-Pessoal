@@ -119,4 +119,16 @@ public class PagamentoService {
     public List<PagamentoDTO> findAllByContaBancaria(Long contaBancariaId) {
         return findAllByContaBancaria(contaBancariaId, Pageable.unpaged()).getContent();
     }
+
+    @Transactional(readOnly = true)
+    public PagamentoDTO findById(Integer id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id é obrigatório");
+        }
+
+        return pagamentoRepo.findById(Long.valueOf(id))
+                .map(PagamentoMapper::toDto)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Pagamento não encontrado: id=" + id));
+    }
 }

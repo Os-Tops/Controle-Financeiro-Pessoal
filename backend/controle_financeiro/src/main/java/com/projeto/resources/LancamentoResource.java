@@ -5,11 +5,16 @@ import com.projeto.services.LancamentoService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
+@Validated
 @RestController
 @RequestMapping("/api/v1/lancamentos")
 public class LancamentoResource {
@@ -43,6 +48,36 @@ public class LancamentoResource {
                 : service.findAll();              // não paginado sem filtro
 
         return ResponseEntity.ok(body);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<LancamentoDTO> findById(@PathVariable Integer id) {
+        LancamentoDTO dto = service.findById(id);
+        return ResponseEntity.ok(dto);
+    }
+
+    @PostMapping
+    public ResponseEntity<LancamentoDTO> create(
+            @RequestBody @Validated(LancamentoDTO.Create.class) LancamentoDTO dto) {
+
+        LancamentoDTO created = service.create(dto);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .buildAndExpand(created.getId())
+                .toUri();
+        return ResponseEntity.created(location).body(created);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<LancamentoDTO> update(@PathVariable Long id,
+                                             @RequestBody @Validated(LancamentoDTO.Update.class) LancamentoDTO dto) {
+        dto.setId(id);
+        return ResponseEntity.ok(service.update(id, dto));
+    }
+
+    @DeleteMapping("/{id}/cancelar")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
     
 }
