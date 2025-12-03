@@ -21,12 +21,12 @@ public class LancamentoSpecs {
 
             // Filtro por Tipo (RECEITA / DESPESA)
             if (tipo != null) {
-                predicates.add(builder.equal(root.get("tipo"), tipo));
+                predicates.add(builder.equal(root.get("tipoLancamento"), tipo));
             }
 
             // Filtro por Status (PENDENTE / PAGO)
             if (status != null) {
-                predicates.add(builder.equal(root.get("status"), status));
+                predicates.add(builder.equal(root.get("statusLancamento"), status));
             }
 
             // Filtro por Data
