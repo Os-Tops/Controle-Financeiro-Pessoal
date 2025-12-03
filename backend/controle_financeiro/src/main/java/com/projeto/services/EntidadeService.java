@@ -1,7 +1,9 @@
 package com.projeto.services;
 
-import com.projeto.domains.Entidade;
+import com.projeto.domains.*;
 import com.projeto.domains.dtos.EntidadeDTO;
+import com.projeto.domains.dtos.EntidadeDTO;
+import com.projeto.mappers.EntidadeMapper;
 import com.projeto.mappers.EntidadeMapper;
 import com.projeto.repositories.UsuarioRepository;
 import com.projeto.repositories.EntidadeRepository;
@@ -88,6 +90,92 @@ public class EntidadeService {
     @Transactional(readOnly = true)
     public List<EntidadeDTO> findAllByUsuario(Integer usuarioId) {
         return findAllByUsuario(usuarioId, Pageable.unpaged()).getContent();
+    }
+
+    @Transactional(readOnly = true)
+    public EntidadeDTO findById(Integer id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id é obrigatório");
+        }
+
+        return entidadeRepo.findById(Long.valueOf(id))
+                .map(EntidadeMapper::toDto)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Entidade não encontrada: id=" + id));
+    }
+
+    //Create
+    @Transactional
+    public EntidadeDTO create(EntidadeDTO entidadeDTO) {
+
+
+        if (entidadeDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados da entidade são obrigatórios");
+        }
+
+        if (entidadeDTO.getUsuarioId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do Usuário é obrigatório");
+        }
+
+        Usuario usuario = usuarioRepo.findById(Long.valueOf(entidadeDTO.getUsuarioId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Usuário não encontrado: id=" + entidadeDTO.getUsuarioId())
+                );
+
+        entidadeDTO.setId(null);
+        Entidade entidade;
+        try{
+            entidade = EntidadeMapper.toEntity(entidadeDTO, usuario);
+        } catch (IllegalArgumentException ex){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return EntidadeMapper.toDto(entidadeRepo.save(entidade));
+    }
+
+    //Update
+    @Transactional
+    public EntidadeDTO update(Long id, EntidadeDTO entidadeDTO) {
+
+        if (entidadeDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados do entidade são obrigatórios");
+        }
+
+        if (entidadeDTO.getUsuarioId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do Usuário é obrigatório");
+        }
+
+        Usuario usuario = usuarioRepo.findById(Long.valueOf(entidadeDTO.getUsuarioId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Usuário não encontrado: id=" + entidadeDTO.getUsuarioId())
+                );
+
+        Entidade entidade = entidadeRepo.findById(Long.valueOf(entidadeDTO.getId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Entidade não encontrado: id=" + id));
+
+        entidadeDTO.setId(id);
+        try{
+            entidade = EntidadeMapper.toEntity(entidadeDTO, usuario);
+        } catch (IllegalArgumentException ex){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return EntidadeMapper.toDto(entidadeRepo.save(entidade));
+    }
+
+    //Delete
+    @Transactional
+    public void delete(Long id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id é obrigatório");
+        }
+
+        Entidade entidade = entidadeRepo.findById(id)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Entidade não encontrada: id=" + id));
+
+        entidadeRepo.delete(entidade);
     }
     
 }
