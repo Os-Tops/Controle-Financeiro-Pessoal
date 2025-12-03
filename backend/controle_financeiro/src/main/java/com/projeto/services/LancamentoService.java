@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.projeto.services.specs.LancamentoSpecs;
+import org.springframework.data.jpa.domain.Specification;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -68,17 +71,12 @@ public class LancamentoService {
         return LancamentoMapper.toDtoPage(page);
     }
 
-    /** Paginado, filtrando por usuario */
+    /**
+     * Busca paginada com múltiplos filtros dinâmicos
+     */
     @Transactional(readOnly = true)
-    public Page<LancamentoDTO> findAllByUsuario(Integer usuarioId, Pageable pageable) {
-        if (usuarioId == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "usuarioId é obrigatório");
-        }
-
-        // valida existência do usuário para erro claro
-        if (!usuarioRepo.existsById(Long.valueOf(usuarioId))) {
-            throw new ObjectNotFoundException("Usuario não encontrado: id=" + usuarioId);
-        }
+    public Page<LancamentoDTO> findWithFilters(TipoLancamento tipo, StatusLancamento status, LocalDate inicio,
+                                               LocalDate fim, Pageable pageable) {
 
         final Pageable effective;
         if (pageable == null || pageable.isUnpaged()) {
@@ -90,143 +88,24 @@ public class LancamentoService {
                     pageable.getSort()
             );
         }
-        Page<Lancamento> page = lancamentoRepo.findByUsuario_Id(usuarioId, effective);
+
+        Specification<Lancamento> spec = LancamentoSpecs.comFiltros(tipo, status, inicio, fim);
+
+        Page<Lancamento> page = lancamentoRepo.findAll(spec, effective);
+
         return LancamentoMapper.toDtoPage(page);
     }
 
-    /** Não paginado, filtrando por usuario (reaproveita o paginado com unpaged) */
+    // Sobrecarga para lista não paginada (Endpoint /all)
     @Transactional(readOnly = true)
-    public List<LancamentoDTO> findAllByUsuario(Integer usuarioId) {
-        return findAllByUsuario(usuarioId, Pageable.unpaged()).getContent();
+    public List<LancamentoDTO> findListWithFilters(TipoLancamento tipo,
+                                                   StatusLancamento status,
+                                                   LocalDate inicio,
+                                                   LocalDate fim) {
+        // Reutiliza a lógica acima com unpaged
+        return findWithFilters(tipo, status, inicio, fim, Pageable.unpaged()).getContent();
     }
 
-    /** Paginado, filtrando por ContaBancaria*/
-    @Transactional(readOnly = true)
-    public Page<LancamentoDTO> findAllByContaBancaria(Integer contaBancariaId, Pageable pageable) {
-        if (contaBancariaId == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "contaBancariaId é obrigatório");
-        }
-
-        // valida existência da conta bancária para erro claro
-        if (!contaBancariaRepo.existsById(Long.valueOf(contaBancariaId))) {
-            throw new ObjectNotFoundException("Conta Bancaria não encontrada: id=" + contaBancariaId);
-        }
-
-        final Pageable effective;
-        if (pageable == null || pageable.isUnpaged()) {
-            effective = Pageable.unpaged();
-        } else {
-            effective = PageRequest.of(
-                    Math.max(0, pageable.getPageNumber()),
-                    Math.min(pageable.getPageSize(), MAX_PAGE_SIZE),
-                    pageable.getSort()
-            );
-        }
-        Page<Lancamento> page = lancamentoRepo.findByContaBancaria_Id(Long.valueOf(contaBancariaId), effective);
-        return LancamentoMapper.toDtoPage(page);
-    }
-
-    /** Não paginado, filtrando por conta bancaria (reaproveita o paginado com unpaged) */
-    @Transactional(readOnly = true)
-    public List<LancamentoDTO> findAllByContaBancaria(Integer contaBancariaId) {
-        return findAllByContaBancaria(contaBancariaId, Pageable.unpaged()).getContent();
-    }
-
-    /** Paginado, filtrando por CentroCusto*/
-    @Transactional(readOnly = true)
-    public Page<LancamentoDTO> findAllByCentroCusto(Integer centroCustoId, Pageable pageable) {
-        if (centroCustoId == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "centroCustoId é obrigatório");
-        }
-
-        // valida existência da conta bancária para erro claro
-        if (!centroCustoRepo.existsById(Long.valueOf(centroCustoId))) {
-            throw new ObjectNotFoundException("Centro de Custo não encontrada: id=" + centroCustoId);
-        }
-
-        final Pageable effective;
-        if (pageable == null || pageable.isUnpaged()) {
-            effective = Pageable.unpaged();
-        } else {
-            effective = PageRequest.of(
-                    Math.max(0, pageable.getPageNumber()),
-                    Math.min(pageable.getPageSize(), MAX_PAGE_SIZE),
-                    pageable.getSort()
-            );
-        }
-        Page<Lancamento> page = lancamentoRepo.findByCentroCusto_Id(centroCustoId, effective);
-        return LancamentoMapper.toDtoPage(page);
-    }
-
-    /** Não paginado, filtrando por centro de custo (reaproveita o paginado com unpaged) */
-    @Transactional(readOnly = true)
-    public List<LancamentoDTO> findAllByCentroCusto(Integer centroCustoId) {
-        return findAllByCentroCusto(centroCustoId, Pageable.unpaged()).getContent();
-    }
-
-    /** Paginado, filtrando por Entidade*/
-    @Transactional(readOnly = true)
-    public Page<LancamentoDTO> findAllByEntidade(Integer entidadeId, Pageable pageable) {
-        if (entidadeId == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "entidadeId é obrigatório");
-        }
-
-        // valida existência da conta bancária para erro claro
-        if (!entidadeRepo.existsById(Long.valueOf(entidadeId))) {
-            throw new ObjectNotFoundException("Entidade não encontrada: id=" + entidadeId);
-        }
-
-        final Pageable effective;
-        if (pageable == null || pageable.isUnpaged()) {
-            effective = Pageable.unpaged();
-        } else {
-            effective = PageRequest.of(
-                    Math.max(0, pageable.getPageNumber()),
-                    Math.min(pageable.getPageSize(), MAX_PAGE_SIZE),
-                    pageable.getSort()
-            );
-        }
-        Page<Lancamento> page = lancamentoRepo.findByEntidade_Id(entidadeId, effective);
-        return LancamentoMapper.toDtoPage(page);
-    }
-
-    /** Não paginado, filtrando por Entidade (reaproveita o paginado com unpaged) */
-    @Transactional(readOnly = true)
-    public List<LancamentoDTO> findAllByEntidade(Integer entidadeId) {
-        return findAllByEntidade(entidadeId, Pageable.unpaged()).getContent();
-    }
-
-    /** Paginado, filtrando por Cartao Credito*/
-    @Transactional(readOnly = true)
-    public Page<LancamentoDTO> findAllByCartaoCredito(Integer cartaoCreditoId, Pageable pageable) {
-        if (cartaoCreditoId == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "cartaoCreditoId é obrigatório");
-        }
-
-        // valida existência da conta bancária para erro claro
-        if (!cartaoCreditoRepo.existsById(Long.valueOf(cartaoCreditoId))) {
-            throw new ObjectNotFoundException("Cartão de Credito não encontrada: id=" + cartaoCreditoId);
-        }
-
-        final Pageable effective;
-        if (pageable == null || pageable.isUnpaged()) {
-            effective = Pageable.unpaged();
-        } else {
-            effective = PageRequest.of(
-                    Math.max(0, pageable.getPageNumber()),
-                    Math.min(pageable.getPageSize(), MAX_PAGE_SIZE),
-                    pageable.getSort()
-            );
-        }
-        Page<Lancamento> page = lancamentoRepo.findByCartaoCredito_Id(cartaoCreditoId, effective);
-        return LancamentoMapper.toDtoPage(page);
-    }
-
-    /** Não paginado, filtrando por Cartao Credito (reaproveita o paginado com unpaged) */
-    @Transactional(readOnly = true)
-    public List<LancamentoDTO> findAllByCartaoCredito(Integer cartaoCreditoId) {
-        return findAllByCartaoCredito(cartaoCreditoId, Pageable.unpaged()).getContent();
-    }
 
     @Transactional(readOnly = true)
     public LancamentoDTO findById(Integer id) {

@@ -28665,3 +28665,1541 @@ Caused by: java.lang.ClassNotFoundException: com.projeto.services.EntidadeServic
 2025-12-03T10:45:02.844-03:00  WARN 23900 --- [controle_financeiro] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
 2025-12-03T10:45:02.844-03:00  INFO 23900 --- [controle_financeiro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
 2025-12-03T10:45:02.844-03:00  INFO 23900 --- [controle_financeiro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2025-12-03T10:49:23.448-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] c.p.c.ControleFinanceiroApplication      : Starting ControleFinanceiroApplication using Java 24.0.2 with PID 10428 (D:\Estudo\Sistemas de Informação FEF\4° Semestre\Laboratório de Programação 4\Controle-Financeiro-Pessoal\backend\controle_financeiro\target\classes started by Arklok in D:\Estudo\Sistemas de Informação FEF\4° Semestre\Laboratório de Programação 4\Controle-Financeiro-Pessoal\backend\controle_financeiro)
+2025-12-03T10:49:23.450-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] c.p.c.ControleFinanceiroApplication      : The following 1 profile is active: "test"
+2025-12-03T10:49:23.496-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-03T10:49:23.496-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-03T10:49:23.877-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-03T10:49:23.934-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 11 JPA repository interfaces.
+2025-12-03T10:49:24.399-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-03T10:49:24.409-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-03T10:49:24.410-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-03T10:49:24.440-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-03T10:49:24.440-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 943 ms
+2025-12-03T10:49:24.522-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-03T10:49:24.654-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:controlefinanceirodb user=SA
+2025-12-03T10:49:24.656-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-03T10:49:24.687-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-03T10:49:24.719-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-12-03T10:49:24.740-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-03T10:49:24.786-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BasicTypeReference@24597a7d
+2025-12-03T10:49:24.786-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BasicTypeReference@24597a7d
+2025-12-03T10:49:24.786-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BasicTypeReference@24597a7d
+2025-12-03T10:49:24.787-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.BasicTypeReference@2b7008c8
+2025-12-03T10:49:24.787-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.NumericBooleanConverter -> org.hibernate.type.BasicTypeReference@2b7008c8
+2025-12-03T10:49:24.787-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.BasicTypeReference@4aa48036
+2025-12-03T10:49:24.787-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.TrueFalseConverter -> org.hibernate.type.BasicTypeReference@4aa48036
+2025-12-03T10:49:24.787-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.BasicTypeReference@27290554
+2025-12-03T10:49:24.787-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.YesNoConverter -> org.hibernate.type.BasicTypeReference@27290554
+2025-12-03T10:49:24.787-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.BasicTypeReference@48cc095e
+2025-12-03T10:49:24.787-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.BasicTypeReference@48cc095e
+2025-12-03T10:49:24.787-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.BasicTypeReference@48cc095e
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BasicTypeReference@63516ec7
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BasicTypeReference@63516ec7
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BasicTypeReference@63516ec7
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary_wrapper -> org.hibernate.type.BasicTypeReference@d9af7ab
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.BasicTypeReference@d9af7ab
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.BasicTypeReference@627650e9
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BasicTypeReference@4a583300
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BasicTypeReference@4a583300
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.BasicTypeReference@22974bda
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob_wrapper -> org.hibernate.type.BasicTypeReference@786ad78c
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.BasicTypeReference@28cb3170
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.BasicTypeReference@28cb3170
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.BasicTypeReference@28cb3170
+2025-12-03T10:49:24.788-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.BasicTypeReference@2380c75a
+2025-12-03T10:49:24.789-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.BasicTypeReference@2380c75a
+2025-12-03T10:49:24.789-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.BasicTypeReference@2380c75a
+2025-12-03T10:49:24.789-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.BasicTypeReference@3b51816b
+2025-12-03T10:49:24.789-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.BasicTypeReference@3b51816b
+2025-12-03T10:49:24.789-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.BasicTypeReference@3b51816b
+2025-12-03T10:49:24.789-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.BasicTypeReference@15a9f73a
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.BasicTypeReference@15a9f73a
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.BasicTypeReference@15a9f73a
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.BasicTypeReference@6498144e
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.BasicTypeReference@6498144e
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.BasicTypeReference@6498144e
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BasicTypeReference@4187a590
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BasicTypeReference@4187a590
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BasicTypeReference@76ea2e12
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BasicTypeReference@76ea2e12
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.BasicTypeReference@2c2017d2
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.BasicTypeReference@2c2017d2
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.BasicTypeReference@2c2017d2
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration character_nchar -> org.hibernate.type.BasicTypeReference@83e5c7c
+2025-12-03T10:49:24.790-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.BasicTypeReference@74e9c3ce
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.BasicTypeReference@74e9c3ce
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.BasicTypeReference@5354f9ff
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.BasicTypeReference@7f66fac0
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.BasicTypeReference@7f66fac0
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.BasicTypeReference@7f66fac0
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.BasicTypeReference@5c194ec
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.BasicTypeReference@3f8cd029
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.BasicTypeReference@4b635d26
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.BasicTypeReference@39b0e70
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.BasicTypeReference@39b0e70
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.BasicTypeReference@af48c1b
+2025-12-03T10:49:24.791-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.BasicTypeReference@af48c1b
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.BasicTypeReference@532008f4
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob_char_array -> org.hibernate.type.BasicTypeReference@27be5db
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob_character_array -> org.hibernate.type.BasicTypeReference@59c8936a
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.BasicTypeReference@7772481c
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob_character_array -> org.hibernate.type.BasicTypeReference@244699ae
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob_char_array -> org.hibernate.type.BasicTypeReference@794ee5c0
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.BasicTypeReference@64806a40
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.BasicTypeReference@64806a40
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.BasicTypeReference@1d7fc64
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.BasicTypeReference@1d7fc64
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.BasicTypeReference@11cc9e19
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.BasicTypeReference@11cc9e19
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.BasicTypeReference@1f220905
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.BasicTypeReference@1f220905
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.BasicTypeReference@7897b2cb
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.BasicTypeReference@7897b2cb
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@461d5561
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@33d427ed
+2025-12-03T10:49:24.792-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.BasicTypeReference@3cb16ab3
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.BasicTypeReference@3cb16ab3
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeUtc -> org.hibernate.type.BasicTypeReference@79758604
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeWithTimezone -> org.hibernate.type.BasicTypeReference@55ef7216
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@4796cc09
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.BasicTypeReference@70c5d2ba
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.BasicTypeReference@70c5d2ba
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@25d52f00
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@b04866e
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.BasicTypeReference@7a03f583
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.BasicTypeReference@7a03f583
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.BasicTypeReference@248db87b
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.BasicTypeReference@248db87b
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.BasicTypeReference@282c3ec5
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.BasicTypeReference@282c3ec5
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.BasicTypeReference@282c3ec5
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.BasicTypeReference@734fa58
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.BasicTypeReference@734fa58
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.BasicTypeReference@734fa58
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.BasicTypeReference@627eb8d0
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_time -> org.hibernate.type.BasicTypeReference@2b798a84
+2025-12-03T10:49:24.793-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration instant -> org.hibernate.type.BasicTypeReference@62ea5338
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.BasicTypeReference@62ea5338
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid -> org.hibernate.type.BasicTypeReference@42ac9307
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.BasicTypeReference@42ac9307
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration pg-uuid -> org.hibernate.type.BasicTypeReference@42ac9307
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.BasicTypeReference@55031bba
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.BasicTypeReference@32499634
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.BasicTypeReference@28a70d6
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.BasicTypeReference@28a70d6
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.BasicTypeReference@2498ff2b
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Currency -> org.hibernate.type.BasicTypeReference@2498ff2b
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.BasicTypeReference@2498ff2b
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.BasicTypeReference@690bfec9
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.BasicTypeReference@690bfec9
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.BasicTypeReference@178d2dea
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.io.Serializable -> org.hibernate.type.BasicTypeReference@178d2dea
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.BasicTypeReference@4650f30d
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.BasicTypeReference@4650f30d
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZoneOffset -> org.hibernate.type.BasicTypeReference@25523d4b
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZoneOffset -> org.hibernate.type.BasicTypeReference@25523d4b
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.BasicTypeReference@1319729e
+2025-12-03T10:49:24.794-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.BasicTypeReference@1319729e
+2025-12-03T10:49:24.795-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration vector -> org.hibernate.type.BasicTypeReference@6d05ff6a
+2025-12-03T10:49:24.795-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float_vector -> org.hibernate.type.BasicTypeReference@2c0ca15c
+2025-12-03T10:49:24.795-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double_vector -> org.hibernate.type.BasicTypeReference@180069f3
+2025-12-03T10:49:24.795-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte_vector -> org.hibernate.type.BasicTypeReference@40d565ef
+2025-12-03T10:49:24.795-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.BasicTypeReference@2693c30
+2025-12-03T10:49:24.798-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.JavaObjectType@1bc179d1
+2025-12-03T10:49:24.799-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.JavaObjectType@1bc179d1
+2025-12-03T10:49:24.799-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration null -> org.hibernate.type.NullType@3d64284f
+2025-12-03T10:49:24.799-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.BasicTypeReference@70a0bc01
+2025-12-03T10:49:24.799-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.BasicTypeReference@4dc92152
+2025-12-03T10:49:24.799-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.BasicTypeReference@5677c908
+2025-12-03T10:49:24.799-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.BasicTypeReference@4acda5d9
+2025-12-03T10:49:24.799-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.BasicTypeReference@3f785835
+2025-12-03T10:49:24.799-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_time -> org.hibernate.type.BasicTypeReference@3bbf3d39
+2025-12-03T10:49:24.800-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.BasicTypeReference@53e89ccf
+2025-12-03T10:49:24.800-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.BasicTypeReference@742c0806
+2025-12-03T10:49:24.928-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-03T10:49:24.983-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-03T10:49:24.988-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(NCharTypeDescriptor) replaced previous registration(CharTypeDescriptor)
+2025-12-03T10:49:24.989-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(NVarcharTypeDescriptor) replaced previous registration(VarcharTypeDescriptor)
+2025-12-03T10:49:24.989-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(LongNVarcharTypeDescriptor) replaced previous registration(LongVarcharTypeDescriptor)
+2025-12-03T10:49:24.994-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(NClobTypeDescriptor(DEFAULT)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+2025-12-03T10:49:24.995-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(TimestampUtcDescriptor) replaced previous registration(TimestampUtcDescriptor)
+2025-12-03T10:49:24.998-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.DurationType -> basicType@1(java.time.Duration,3015)
+2025-12-03T10:49:24.998-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> basicType@1(java.time.Duration,3015)
+2025-12-03T10:49:24.998-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> basicType@1(java.time.Duration,3015)
+2025-12-03T10:49:25.000-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@59dbfed2] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@30a146bf]
+2025-12-03T10:49:25.668-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-03T10:49:25.670-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@59dbfed2] to SessionFactoryImplementor [org.hibernate.internal.SessionFactoryImpl@101234c4]
+2025-12-03T10:49:25.680-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists cartao_credito cascade 
+2025-12-03T10:49:25.683-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists centro_custo cascade 
+2025-12-03T10:49:25.683-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists conta_bancaria cascade 
+2025-12-03T10:49:25.683-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists entidade cascade 
+2025-12-03T10:49:25.683-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists fatura_cartao cascade 
+2025-12-03T10:49:25.693-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists lancamento cascade 
+2025-12-03T10:49:25.693-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists movimento_conta cascade 
+2025-12-03T10:49:25.693-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists pagamento cascade 
+2025-12-03T10:49:25.693-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists recebimento cascade 
+2025-12-03T10:49:25.694-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists transferencia cascade 
+2025-12-03T10:49:25.694-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists usuario cascade 
+2025-12-03T10:49:25.694-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_cartao_credito
+2025-12-03T10:49:25.694-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_centro_custo
+2025-12-03T10:49:25.694-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_conta_bancaria
+2025-12-03T10:49:25.694-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_entidade
+2025-12-03T10:49:25.695-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_fatura_cartao
+2025-12-03T10:49:25.695-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_lancamento
+2025-12-03T10:49:25.695-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_movimento_conta
+2025-12-03T10:49:25.695-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_pagamento
+2025-12-03T10:49:25.695-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_recebimento
+2025-12-03T10:49:25.695-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_transferencia
+2025-12-03T10:49:25.695-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_usuario
+2025-12-03T10:49:25.697-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_cartao_credito start with 1 increment by 1
+2025-12-03T10:49:25.699-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_centro_custo start with 1 increment by 1
+2025-12-03T10:49:25.699-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_conta_bancaria start with 1 increment by 1
+2025-12-03T10:49:25.699-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_entidade start with 1 increment by 1
+2025-12-03T10:49:25.700-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_fatura_cartao start with 1 increment by 1
+2025-12-03T10:49:25.700-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_lancamento start with 1 increment by 1
+2025-12-03T10:49:25.700-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_movimento_conta start with 1 increment by 1
+2025-12-03T10:49:25.701-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_pagamento start with 1 increment by 1
+2025-12-03T10:49:25.701-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_recebimento start with 1 increment by 1
+2025-12-03T10:49:25.701-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_transferencia start with 1 increment by 1
+2025-12-03T10:49:25.701-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_usuario start with 1 increment by 1
+2025-12-03T10:49:25.703-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table cartao_credito (
+        fechamento_fatura_dia date not null,
+        status integer not null,
+        vencimento_fatura_dia date not null,
+        id bigint not null,
+        id_usuario bigint not null,
+        apelido varchar(100) not null,
+        bandeira varchar(100) not null,
+        emissor varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.707-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table centro_custo (
+        codigo integer not null,
+        status integer not null,
+        id bigint not null,
+        id_usuario bigint not null,
+        nome varchar(120) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.707-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table conta_bancaria (
+        agencia integer not null,
+        data_saldo_inicial date not null,
+        numero integer not null,
+        saldo_inicial numeric(18,3) not null,
+        status integer not null,
+        id bigint not null,
+        id_usuario bigint not null,
+        apelido varchar(100) not null,
+        instituicao varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.711-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table entidade (
+        id bigint not null,
+        id_usuario bigint not null,
+        documento varchar(120) not null,
+        nome varchar(120) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.712-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table fatura_cartao (
+        competencia date not null,
+        data_fechamento date not null,
+        data_vencimento date not null,
+        status integer not null,
+        valor_total numeric(18,3) not null,
+        id bigint not null,
+        id_cartao bigint not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.713-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table lancamento (
+        data_competencia date not null,
+        data_vencimento date not null,
+        meio_pagamento integer not null,
+        status_lancamento integer not null,
+        tipo_lancamento integer not null,
+        valor numeric(18,3) not null,
+        valor_baixado numeric(18,3) not null,
+        id bigint not null,
+        id_cartao_credito bigint not null,
+        id_centro_custo bigint not null,
+        id_conta_bancaria bigint not null,
+        id_entidade bigint not null,
+        id_usuario bigint not null,
+        descricao varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.714-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table movimento_conta (
+        data_movimento date not null,
+        status integer not null,
+        valor numeric(18,3) not null,
+        id bigint not null,
+        id_conta bigint not null,
+        historico varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.714-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table pagamento (
+        data_pagamento date not null,
+        valor_pago numeric(18,3) not null,
+        id bigint not null,
+        id_conta_bancaria bigint not null,
+        id_lancamento bigint not null,
+        observacao varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.715-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table recebimento (
+        data_recebimento date not null,
+        valor_recebido numeric(18,3) not null,
+        id bigint not null,
+        id_conta_bancaria bigint not null,
+        id_lancamento bigint not null,
+        observacao varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.715-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table transferencia (
+        data date not null,
+        valor numeric(18,3) not null,
+        id bigint not null,
+        id_conta_bancaria_destino bigint not null,
+        id_conta_bancaria_origem bigint not null,
+        observacao varchar(120) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.716-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table usuario (
+        criado_em date not null,
+        id bigint not null,
+        email varchar(120) not null,
+        nome varchar(120) not null,
+        primary key (id)
+    )
+2025-12-03T10:49:25.716-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists cartao_credito 
+       add constraint FKh8cnp1ucfv16myu9gkb0ynuf8 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T10:49:25.730-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists centro_custo 
+       add constraint FK6aqthfioogf2o2mpam587p43b 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T10:49:25.734-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists conta_bancaria 
+       add constraint FKi19mvt9vsg55889so65hsp5cg 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T10:49:25.736-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists entidade 
+       add constraint FKjr5q1buomtsavhqp3w1hb32fq 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T10:49:25.737-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists fatura_cartao 
+       add constraint FKkpfvyqgo0031ogb8p530vegec 
+       foreign key (id_cartao) 
+       references cartao_credito
+2025-12-03T10:49:25.737-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FK826uymhp4kp0035x1k4wtckr1 
+       foreign key (id_cartao_credito) 
+       references cartao_credito
+2025-12-03T10:49:25.738-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FKk1jopjb21m4g9tv66m9r1e34h 
+       foreign key (id_centro_custo) 
+       references centro_custo
+2025-12-03T10:49:25.739-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FKqkmok9y8uclchn4r3ipl9ohn7 
+       foreign key (id_conta_bancaria) 
+       references conta_bancaria
+2025-12-03T10:49:25.740-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FK7h9m547soo55ftjvhvrl1mbw4 
+       foreign key (id_entidade) 
+       references entidade
+2025-12-03T10:49:25.741-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FKt2a5b4jc8powehfmsyeufarkr 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T10:49:25.742-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists movimento_conta 
+       add constraint FKh5dyc4vo56g9quuqpkx6f108d 
+       foreign key (id_conta) 
+       references conta_bancaria
+2025-12-03T10:49:25.742-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pagamento 
+       add constraint FKox42fx86qtcuq32tp7c1g7jse 
+       foreign key (id_conta_bancaria) 
+       references conta_bancaria
+2025-12-03T10:49:25.743-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pagamento 
+       add constraint FKqdiipxmhupb7bja9oleu1hd0v 
+       foreign key (id_lancamento) 
+       references lancamento
+2025-12-03T10:49:25.744-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists recebimento 
+       add constraint FK7qb8b9p9vdbih9jokwdnm9dfg 
+       foreign key (id_conta_bancaria) 
+       references conta_bancaria
+2025-12-03T10:49:25.745-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists recebimento 
+       add constraint FKmc88ancvj2vf1gpusxk048d5s 
+       foreign key (id_lancamento) 
+       references lancamento
+2025-12-03T10:49:25.745-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists transferencia 
+       add constraint FK1o91ycvi9oaxlykbkqwi2mfc4 
+       foreign key (id_conta_bancaria_destino) 
+       references conta_bancaria
+2025-12-03T10:49:25.746-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists transferencia 
+       add constraint FKcsxicanlm641g85tvca5ofpc5 
+       foreign key (id_conta_bancaria_origem) 
+       references conta_bancaria
+2025-12-03T10:49:25.750-03:00 TRACE 10428 --- [controle_financeiro] [restartedMain] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryCreated from [org.hibernate.internal.SessionFactoryImpl@101234c4] for TypeConfiguration
+2025-12-03T10:49:25.751-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03T10:49:25.988-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-03T10:49:26.392-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_usuario
+2025-12-03T10:49:26.413-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_usuario
+2025-12-03T10:49:26.414-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_conta_bancaria
+2025-12-03T10:49:26.415-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_conta_bancaria
+2025-12-03T10:49:26.416-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_centro_custo
+2025-12-03T10:49:26.416-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_centro_custo
+2025-12-03T10:49:26.416-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_transferencia
+2025-12-03T10:49:26.417-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_transferencia
+2025-12-03T10:49:26.417-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_cartao_credito
+2025-12-03T10:49:26.418-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_cartao_credito
+2025-12-03T10:49:26.418-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_fatura_cartao
+2025-12-03T10:49:26.418-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_fatura_cartao
+2025-12-03T10:49:26.419-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_entidade
+2025-12-03T10:49:26.419-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_entidade
+2025-12-03T10:49:26.420-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_lancamento
+2025-12-03T10:49:26.420-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_lancamento
+2025-12-03T10:49:26.420-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_recebimento
+2025-12-03T10:49:26.421-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_recebimento
+2025-12-03T10:49:26.421-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_pagamento
+2025-12-03T10:49:26.422-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_pagamento
+2025-12-03T10:49:26.422-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_movimento_conta
+2025-12-03T10:49:26.423-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_movimento_conta
+2025-12-03T10:49:26.439-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        usuario
+        (criado_em, email, nome, id) 
+    values
+        (?, ?, ?, ?)
+2025-12-03T10:49:26.443-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        usuario
+        (criado_em, email, nome, id) 
+    values
+        (?, ?, ?, ?)
+2025-12-03T10:49:26.444-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        conta_bancaria
+        (agencia, apelido, data_saldo_inicial, instituicao, numero, saldo_inicial, status, id_usuario, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.445-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        conta_bancaria
+        (agencia, apelido, data_saldo_inicial, instituicao, numero, saldo_inicial, status, id_usuario, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.445-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        centro_custo
+        (codigo, nome, status, id_usuario, id) 
+    values
+        (?, ?, ?, ?, ?)
+2025-12-03T10:49:26.445-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        centro_custo
+        (codigo, nome, status, id_usuario, id) 
+    values
+        (?, ?, ?, ?, ?)
+2025-12-03T10:49:26.446-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        transferencia
+        (id_conta_bancaria_destino, id_conta_bancaria_origem, data, observacao, valor, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.446-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        transferencia
+        (id_conta_bancaria_destino, id_conta_bancaria_origem, data, observacao, valor, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.447-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        cartao_credito
+        (apelido, bandeira, emissor, fechamento_fatura_dia, status, id_usuario, vencimento_fatura_dia, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.448-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        cartao_credito
+        (apelido, bandeira, emissor, fechamento_fatura_dia, status, id_usuario, vencimento_fatura_dia, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.448-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        fatura_cartao
+        (id_cartao, competencia, data_fechamento, data_vencimento, status, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.448-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        fatura_cartao
+        (id_cartao, competencia, data_fechamento, data_vencimento, status, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.449-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        entidade
+        (documento, nome, id_usuario, id) 
+    values
+        (?, ?, ?, ?)
+2025-12-03T10:49:26.449-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        entidade
+        (documento, nome, id_usuario, id) 
+    values
+        (?, ?, ?, ?)
+2025-12-03T10:49:26.449-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        lancamento
+        (id_cartao_credito, id_centro_custo, id_conta_bancaria, data_competencia, data_vencimento, descricao, id_entidade, meio_pagamento, status_lancamento, tipo_lancamento, id_usuario, valor, valor_baixado, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.450-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        lancamento
+        (id_cartao_credito, id_centro_custo, id_conta_bancaria, data_competencia, data_vencimento, descricao, id_entidade, meio_pagamento, status_lancamento, tipo_lancamento, id_usuario, valor, valor_baixado, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.451-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        recebimento
+        (id_conta_bancaria, data_recebimento, id_lancamento, observacao, valor_recebido, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.451-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        recebimento
+        (id_conta_bancaria, data_recebimento, id_lancamento, observacao, valor_recebido, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.451-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        pagamento
+        (id_conta_bancaria, data_pagamento, id_lancamento, observacao, valor_pago, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.452-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        pagamento
+        (id_conta_bancaria, data_pagamento, id_lancamento, observacao, valor_pago, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.452-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        movimento_conta
+        (id_conta, data_movimento, historico, status, valor, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.453-03:00 DEBUG 10428 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        movimento_conta
+        (id_conta, data_movimento, historico, status, valor, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T10:49:26.554-03:00  WARN 10428 --- [controle_financeiro] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-03T10:49:26.746-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:controlefinanceirodb'
+2025-12-03T10:49:26.828-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-03T10:49:26.854-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-03T10:49:26.860-03:00  INFO 10428 --- [controle_financeiro] [restartedMain] c.p.c.ControleFinanceiroApplication      : Started ControleFinanceiroApplication in 3.751 seconds (process running for 4.256)
+2025-12-03T10:49:29.348-03:00  INFO 10428 --- [controle_financeiro] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-03T10:49:29.348-03:00  INFO 10428 --- [controle_financeiro] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-03T10:49:29.349-03:00  INFO 10428 --- [controle_financeiro] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-03T10:49:29.396-03:00 DEBUG 10428 --- [controle_financeiro] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        l1_0.id,
+        l1_0.id_cartao_credito,
+        l1_0.id_centro_custo,
+        l1_0.id_conta_bancaria,
+        l1_0.data_competencia,
+        l1_0.data_vencimento,
+        l1_0.descricao,
+        l1_0.id_entidade,
+        l1_0.meio_pagamento,
+        l1_0.status_lancamento,
+        l1_0.tipo_lancamento,
+        l1_0.id_usuario,
+        l1_0.valor,
+        l1_0.valor_baixado 
+    from
+        lancamento l1_0 
+    where
+        l1_0.id=?
+2025-12-03T10:49:38.345-03:00 DEBUG 10428 --- [controle_financeiro] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        l1_0.id,
+        l1_0.id_cartao_credito,
+        l1_0.id_centro_custo,
+        l1_0.id_conta_bancaria,
+        l1_0.data_competencia,
+        l1_0.data_vencimento,
+        l1_0.descricao,
+        l1_0.id_entidade,
+        l1_0.meio_pagamento,
+        l1_0.status_lancamento,
+        l1_0.tipo_lancamento,
+        l1_0.id_usuario,
+        l1_0.valor,
+        l1_0.valor_baixado 
+    from
+        lancamento l1_0 
+    order by
+        l1_0.data_vencimento 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2025-12-03T10:49:38.352-03:00  WARN 10428 --- [controle_financeiro] [http-nio-8080-exec-3] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-12-03T10:50:12.657-03:00  INFO 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-03T10:50:12.662-03:00  INFO 10428 --- [controle_financeiro] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-03T10:50:12.665-03:00  INFO 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03T10:50:12.675-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists cartao_credito cascade 
+2025-12-03T10:50:12.676-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists centro_custo cascade 
+2025-12-03T10:50:12.677-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists conta_bancaria cascade 
+2025-12-03T10:50:12.677-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists entidade cascade 
+2025-12-03T10:50:12.678-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists fatura_cartao cascade 
+2025-12-03T10:50:12.678-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists lancamento cascade 
+2025-12-03T10:50:12.679-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists movimento_conta cascade 
+2025-12-03T10:50:12.679-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pagamento cascade 
+2025-12-03T10:50:12.679-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists recebimento cascade 
+2025-12-03T10:50:12.679-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists transferencia cascade 
+2025-12-03T10:50:12.680-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists usuario cascade 
+2025-12-03T10:50:12.680-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_cartao_credito
+2025-12-03T10:50:12.680-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_centro_custo
+2025-12-03T10:50:12.680-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_conta_bancaria
+2025-12-03T10:50:12.680-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_entidade
+2025-12-03T10:50:12.680-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_fatura_cartao
+2025-12-03T10:50:12.681-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_lancamento
+2025-12-03T10:50:12.681-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_movimento_conta
+2025-12-03T10:50:12.681-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_pagamento
+2025-12-03T10:50:12.681-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_recebimento
+2025-12-03T10:50:12.681-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_transferencia
+2025-12-03T10:50:12.681-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_usuario
+2025-12-03T10:50:12.682-03:00 TRACE 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryClosed from [org.hibernate.internal.SessionFactoryImpl@101234c4] for TypeConfiguration
+2025-12-03T10:50:12.682-03:00 DEBUG 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] o.h.type.spi.TypeConfiguration$Scope     : Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@57b5169a] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@101234c4]
+2025-12-03T10:50:12.685-03:00  WARN 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-03T10:50:12.686-03:00  INFO 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-03T10:50:12.687-03:00  INFO 10428 --- [controle_financeiro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-03T14:30:14.184-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] c.p.c.ControleFinanceiroApplication      : Starting ControleFinanceiroApplication using Java 24.0.2 with PID 13024 (D:\Estudo\Sistemas de Informação FEF\4° Semestre\Laboratório de Programação 4\Controle-Financeiro-Pessoal\backend\controle_financeiro\target\classes started by Arklok in D:\Estudo\Sistemas de Informação FEF\4° Semestre\Laboratório de Programação 4\Controle-Financeiro-Pessoal\backend\controle_financeiro)
+2025-12-03T14:30:14.188-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] c.p.c.ControleFinanceiroApplication      : The following 1 profile is active: "test"
+2025-12-03T14:30:14.237-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-03T14:30:14.237-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-03T14:30:14.820-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-03T14:30:14.889-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 11 JPA repository interfaces.
+2025-12-03T14:30:15.423-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-03T14:30:15.439-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-03T14:30:15.439-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-03T14:30:15.471-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-03T14:30:15.472-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1234 ms
+2025-12-03T14:30:15.565-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-03T14:30:15.736-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:controlefinanceirodb user=SA
+2025-12-03T14:30:15.737-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-03T14:30:15.773-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-03T14:30:15.823-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-12-03T14:30:15.855-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-03T14:30:15.917-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BasicTypeReference@12a42852
+2025-12-03T14:30:15.917-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BasicTypeReference@12a42852
+2025-12-03T14:30:15.917-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BasicTypeReference@12a42852
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.BasicTypeReference@53330948
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.NumericBooleanConverter -> org.hibernate.type.BasicTypeReference@53330948
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.BasicTypeReference@3d2006a0
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.TrueFalseConverter -> org.hibernate.type.BasicTypeReference@3d2006a0
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.BasicTypeReference@46d00a8d
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.YesNoConverter -> org.hibernate.type.BasicTypeReference@46d00a8d
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.BasicTypeReference@75855cbd
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.BasicTypeReference@75855cbd
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.BasicTypeReference@75855cbd
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BasicTypeReference@3e37720c
+2025-12-03T14:30:15.918-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BasicTypeReference@3e37720c
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BasicTypeReference@3e37720c
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary_wrapper -> org.hibernate.type.BasicTypeReference@31f666c
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.BasicTypeReference@31f666c
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.BasicTypeReference@455d80e0
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BasicTypeReference@1ae24c42
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BasicTypeReference@1ae24c42
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.BasicTypeReference@1fc0fa00
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob_wrapper -> org.hibernate.type.BasicTypeReference@6714c392
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.BasicTypeReference@4e671510
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.BasicTypeReference@4e671510
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.BasicTypeReference@4e671510
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.BasicTypeReference@46efc0c2
+2025-12-03T14:30:15.919-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.BasicTypeReference@46efc0c2
+2025-12-03T14:30:15.920-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.BasicTypeReference@46efc0c2
+2025-12-03T14:30:15.920-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.BasicTypeReference@5e6722e5
+2025-12-03T14:30:15.920-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.BasicTypeReference@5e6722e5
+2025-12-03T14:30:15.920-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.BasicTypeReference@5e6722e5
+2025-12-03T14:30:15.920-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.BasicTypeReference@1fae62e8
+2025-12-03T14:30:15.920-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.BasicTypeReference@1fae62e8
+2025-12-03T14:30:15.920-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.BasicTypeReference@1fae62e8
+2025-12-03T14:30:15.920-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.BasicTypeReference@69173b98
+2025-12-03T14:30:15.920-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.BasicTypeReference@69173b98
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.BasicTypeReference@69173b98
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BasicTypeReference@51c60fa8
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BasicTypeReference@51c60fa8
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BasicTypeReference@36517f7f
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BasicTypeReference@36517f7f
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.BasicTypeReference@5a84f27f
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.BasicTypeReference@5a84f27f
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.BasicTypeReference@5a84f27f
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration character_nchar -> org.hibernate.type.BasicTypeReference@a9fd94c
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.BasicTypeReference@6b452cf8
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.BasicTypeReference@6b452cf8
+2025-12-03T14:30:15.921-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.BasicTypeReference@56d20c68
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.BasicTypeReference@2b381bc7
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.BasicTypeReference@2b381bc7
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.BasicTypeReference@2b381bc7
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.BasicTypeReference@5f99e255
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.BasicTypeReference@1df927b2
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.BasicTypeReference@5b8ed929
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.BasicTypeReference@300307bc
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.BasicTypeReference@300307bc
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.BasicTypeReference@2018d0a3
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.BasicTypeReference@2018d0a3
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.BasicTypeReference@7408a7a5
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob_char_array -> org.hibernate.type.BasicTypeReference@59e26f9c
+2025-12-03T14:30:15.922-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob_character_array -> org.hibernate.type.BasicTypeReference@7174bdfb
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.BasicTypeReference@170ff6be
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob_character_array -> org.hibernate.type.BasicTypeReference@268b4e75
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob_char_array -> org.hibernate.type.BasicTypeReference@6c5f4bb7
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.BasicTypeReference@3890a8a2
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.BasicTypeReference@3890a8a2
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.BasicTypeReference@50420308
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.BasicTypeReference@50420308
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.BasicTypeReference@2c460793
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.BasicTypeReference@2c460793
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.BasicTypeReference@3a52f35f
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.BasicTypeReference@3a52f35f
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.BasicTypeReference@7ba990f
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.BasicTypeReference@7ba990f
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@472080b3
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@5b467d5b
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.BasicTypeReference@7623a567
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.BasicTypeReference@7623a567
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeUtc -> org.hibernate.type.BasicTypeReference@2582384d
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeWithTimezone -> org.hibernate.type.BasicTypeReference@66641156
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@e201464
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.BasicTypeReference@6543905a
+2025-12-03T14:30:15.923-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.BasicTypeReference@6543905a
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@51b79cef
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@171fd92e
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.BasicTypeReference@19126c9d
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.BasicTypeReference@19126c9d
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.BasicTypeReference@602afea5
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.BasicTypeReference@602afea5
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.BasicTypeReference@d9746ab
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.BasicTypeReference@d9746ab
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.BasicTypeReference@d9746ab
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.BasicTypeReference@64a8289e
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.BasicTypeReference@64a8289e
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.BasicTypeReference@64a8289e
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.BasicTypeReference@6ed4d612
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_time -> org.hibernate.type.BasicTypeReference@593cd2bb
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration instant -> org.hibernate.type.BasicTypeReference@6ea96529
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.BasicTypeReference@6ea96529
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid -> org.hibernate.type.BasicTypeReference@4b605cba
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.BasicTypeReference@4b605cba
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration pg-uuid -> org.hibernate.type.BasicTypeReference@4b605cba
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.BasicTypeReference@3cc7782
+2025-12-03T14:30:15.924-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.BasicTypeReference@3cdac44a
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.BasicTypeReference@197f6ed5
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.BasicTypeReference@197f6ed5
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.BasicTypeReference@50b364cc
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Currency -> org.hibernate.type.BasicTypeReference@50b364cc
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.BasicTypeReference@50b364cc
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.BasicTypeReference@3023793f
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.BasicTypeReference@3023793f
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.BasicTypeReference@5a3103e5
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.io.Serializable -> org.hibernate.type.BasicTypeReference@5a3103e5
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.BasicTypeReference@38dac7b0
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.BasicTypeReference@38dac7b0
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZoneOffset -> org.hibernate.type.BasicTypeReference@73844163
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZoneOffset -> org.hibernate.type.BasicTypeReference@73844163
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.BasicTypeReference@58c524ad
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.BasicTypeReference@58c524ad
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration vector -> org.hibernate.type.BasicTypeReference@a393a7b
+2025-12-03T14:30:15.925-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float_vector -> org.hibernate.type.BasicTypeReference@64b09bcb
+2025-12-03T14:30:15.926-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double_vector -> org.hibernate.type.BasicTypeReference@356e4167
+2025-12-03T14:30:15.926-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte_vector -> org.hibernate.type.BasicTypeReference@447feb2b
+2025-12-03T14:30:15.926-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.BasicTypeReference@756fb3d
+2025-12-03T14:30:15.930-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.JavaObjectType@55fc67d2
+2025-12-03T14:30:15.930-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.JavaObjectType@55fc67d2
+2025-12-03T14:30:15.931-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration null -> org.hibernate.type.NullType@3ca6c3d7
+2025-12-03T14:30:15.931-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.BasicTypeReference@3ac8cf3f
+2025-12-03T14:30:15.931-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.BasicTypeReference@7cdaa546
+2025-12-03T14:30:15.931-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.BasicTypeReference@75aa5e22
+2025-12-03T14:30:15.931-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.BasicTypeReference@7f98933b
+2025-12-03T14:30:15.931-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.BasicTypeReference@3d50ac0
+2025-12-03T14:30:15.931-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_time -> org.hibernate.type.BasicTypeReference@2a0c6f69
+2025-12-03T14:30:15.931-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.BasicTypeReference@d707f44
+2025-12-03T14:30:15.931-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.BasicTypeReference@364a349a
+2025-12-03T14:30:16.105-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-03T14:30:16.170-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-03T14:30:16.176-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(NCharTypeDescriptor) replaced previous registration(CharTypeDescriptor)
+2025-12-03T14:30:16.177-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(NVarcharTypeDescriptor) replaced previous registration(VarcharTypeDescriptor)
+2025-12-03T14:30:16.177-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(LongNVarcharTypeDescriptor) replaced previous registration(LongVarcharTypeDescriptor)
+2025-12-03T14:30:16.178-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(NClobTypeDescriptor(DEFAULT)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+2025-12-03T14:30:16.179-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] o.h.t.d.jdbc.spi.JdbcTypeRegistry        : addDescriptor(TimestampUtcDescriptor) replaced previous registration(TimestampUtcDescriptor)
+2025-12-03T14:30:16.183-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.DurationType -> basicType@1(java.time.Duration,3015)
+2025-12-03T14:30:16.183-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> basicType@1(java.time.Duration,3015)
+2025-12-03T14:30:16.183-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> basicType@1(java.time.Duration,3015)
+2025-12-03T14:30:16.185-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@7deca06f] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@ea3bc27]
+2025-12-03T14:30:16.936-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-03T14:30:16.937-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@7deca06f] to SessionFactoryImplementor [org.hibernate.internal.SessionFactoryImpl@362598be]
+2025-12-03T14:30:16.952-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists cartao_credito cascade 
+2025-12-03T14:30:16.955-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists centro_custo cascade 
+2025-12-03T14:30:16.955-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists conta_bancaria cascade 
+2025-12-03T14:30:16.955-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists entidade cascade 
+2025-12-03T14:30:16.956-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists fatura_cartao cascade 
+2025-12-03T14:30:16.958-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists lancamento cascade 
+2025-12-03T14:30:16.958-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists movimento_conta cascade 
+2025-12-03T14:30:16.958-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists pagamento cascade 
+2025-12-03T14:30:16.958-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists recebimento cascade 
+2025-12-03T14:30:16.958-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists transferencia cascade 
+2025-12-03T14:30:16.959-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists usuario cascade 
+2025-12-03T14:30:16.959-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_cartao_credito
+2025-12-03T14:30:16.959-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_centro_custo
+2025-12-03T14:30:16.959-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_conta_bancaria
+2025-12-03T14:30:16.959-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_entidade
+2025-12-03T14:30:16.960-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_fatura_cartao
+2025-12-03T14:30:16.960-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_lancamento
+2025-12-03T14:30:16.960-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_movimento_conta
+2025-12-03T14:30:16.960-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_pagamento
+2025-12-03T14:30:16.960-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_recebimento
+2025-12-03T14:30:16.960-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_transferencia
+2025-12-03T14:30:16.960-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    drop sequence if exists seq_usuario
+2025-12-03T14:30:16.964-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_cartao_credito start with 1 increment by 1
+2025-12-03T14:30:16.965-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_centro_custo start with 1 increment by 1
+2025-12-03T14:30:16.965-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_conta_bancaria start with 1 increment by 1
+2025-12-03T14:30:16.966-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_entidade start with 1 increment by 1
+2025-12-03T14:30:16.966-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_fatura_cartao start with 1 increment by 1
+2025-12-03T14:30:16.966-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_lancamento start with 1 increment by 1
+2025-12-03T14:30:16.967-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_movimento_conta start with 1 increment by 1
+2025-12-03T14:30:16.967-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_pagamento start with 1 increment by 1
+2025-12-03T14:30:16.967-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_recebimento start with 1 increment by 1
+2025-12-03T14:30:16.967-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_transferencia start with 1 increment by 1
+2025-12-03T14:30:16.968-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create sequence seq_usuario start with 1 increment by 1
+2025-12-03T14:30:16.970-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table cartao_credito (
+        fechamento_fatura_dia date not null,
+        status integer not null,
+        vencimento_fatura_dia date not null,
+        id bigint not null,
+        id_usuario bigint not null,
+        apelido varchar(100) not null,
+        bandeira varchar(100) not null,
+        emissor varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.974-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table centro_custo (
+        codigo integer not null,
+        status integer not null,
+        id bigint not null,
+        id_usuario bigint not null,
+        nome varchar(120) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.975-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table conta_bancaria (
+        agencia integer not null,
+        data_saldo_inicial date not null,
+        numero integer not null,
+        saldo_inicial numeric(18,3) not null,
+        status integer not null,
+        id bigint not null,
+        id_usuario bigint not null,
+        apelido varchar(100) not null,
+        instituicao varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.976-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table entidade (
+        id bigint not null,
+        id_usuario bigint not null,
+        documento varchar(120) not null,
+        nome varchar(120) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.976-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table fatura_cartao (
+        competencia date not null,
+        data_fechamento date not null,
+        data_vencimento date not null,
+        status integer not null,
+        valor_total numeric(18,3) not null,
+        id bigint not null,
+        id_cartao bigint not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.977-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table lancamento (
+        data_competencia date not null,
+        data_vencimento date not null,
+        meio_pagamento integer not null,
+        status_lancamento integer not null,
+        tipo_lancamento integer not null,
+        valor numeric(18,3) not null,
+        valor_baixado numeric(18,3) not null,
+        id bigint not null,
+        id_cartao_credito bigint not null,
+        id_centro_custo bigint not null,
+        id_conta_bancaria bigint not null,
+        id_entidade bigint not null,
+        id_usuario bigint not null,
+        descricao varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.978-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table movimento_conta (
+        data_movimento date not null,
+        status integer not null,
+        valor numeric(18,3) not null,
+        id bigint not null,
+        id_conta bigint not null,
+        historico varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.978-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table pagamento (
+        data_pagamento date not null,
+        valor_pago numeric(18,3) not null,
+        id bigint not null,
+        id_conta_bancaria bigint not null,
+        id_lancamento bigint not null,
+        observacao varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.979-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table recebimento (
+        data_recebimento date not null,
+        valor_recebido numeric(18,3) not null,
+        id bigint not null,
+        id_conta_bancaria bigint not null,
+        id_lancamento bigint not null,
+        observacao varchar(100) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.979-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table transferencia (
+        data date not null,
+        valor numeric(18,3) not null,
+        id bigint not null,
+        id_conta_bancaria_destino bigint not null,
+        id_conta_bancaria_origem bigint not null,
+        observacao varchar(120) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.980-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    create table usuario (
+        criado_em date not null,
+        id bigint not null,
+        email varchar(120) not null,
+        nome varchar(120) not null,
+        primary key (id)
+    )
+2025-12-03T14:30:16.981-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists cartao_credito 
+       add constraint FKh8cnp1ucfv16myu9gkb0ynuf8 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T14:30:16.991-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists centro_custo 
+       add constraint FK6aqthfioogf2o2mpam587p43b 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T14:30:16.993-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists conta_bancaria 
+       add constraint FKi19mvt9vsg55889so65hsp5cg 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T14:30:16.994-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists entidade 
+       add constraint FKjr5q1buomtsavhqp3w1hb32fq 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T14:30:16.995-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists fatura_cartao 
+       add constraint FKkpfvyqgo0031ogb8p530vegec 
+       foreign key (id_cartao) 
+       references cartao_credito
+2025-12-03T14:30:16.995-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FK826uymhp4kp0035x1k4wtckr1 
+       foreign key (id_cartao_credito) 
+       references cartao_credito
+2025-12-03T14:30:16.996-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FKk1jopjb21m4g9tv66m9r1e34h 
+       foreign key (id_centro_custo) 
+       references centro_custo
+2025-12-03T14:30:16.997-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FKqkmok9y8uclchn4r3ipl9ohn7 
+       foreign key (id_conta_bancaria) 
+       references conta_bancaria
+2025-12-03T14:30:16.998-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FK7h9m547soo55ftjvhvrl1mbw4 
+       foreign key (id_entidade) 
+       references entidade
+2025-12-03T14:30:16.999-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists lancamento 
+       add constraint FKt2a5b4jc8powehfmsyeufarkr 
+       foreign key (id_usuario) 
+       references usuario
+2025-12-03T14:30:17.000-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists movimento_conta 
+       add constraint FKh5dyc4vo56g9quuqpkx6f108d 
+       foreign key (id_conta) 
+       references conta_bancaria
+2025-12-03T14:30:17.001-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pagamento 
+       add constraint FKox42fx86qtcuq32tp7c1g7jse 
+       foreign key (id_conta_bancaria) 
+       references conta_bancaria
+2025-12-03T14:30:17.002-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pagamento 
+       add constraint FKqdiipxmhupb7bja9oleu1hd0v 
+       foreign key (id_lancamento) 
+       references lancamento
+2025-12-03T14:30:17.002-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists recebimento 
+       add constraint FK7qb8b9p9vdbih9jokwdnm9dfg 
+       foreign key (id_conta_bancaria) 
+       references conta_bancaria
+2025-12-03T14:30:17.003-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists recebimento 
+       add constraint FKmc88ancvj2vf1gpusxk048d5s 
+       foreign key (id_lancamento) 
+       references lancamento
+2025-12-03T14:30:17.004-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists transferencia 
+       add constraint FK1o91ycvi9oaxlykbkqwi2mfc4 
+       foreign key (id_conta_bancaria_destino) 
+       references conta_bancaria
+2025-12-03T14:30:17.005-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists transferencia 
+       add constraint FKcsxicanlm641g85tvca5ofpc5 
+       foreign key (id_conta_bancaria_origem) 
+       references conta_bancaria
+2025-12-03T14:30:17.009-03:00 TRACE 13024 --- [controle_financeiro] [restartedMain] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryCreated from [org.hibernate.internal.SessionFactoryImpl@362598be] for TypeConfiguration
+2025-12-03T14:30:17.009-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03T14:30:17.287-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-03T14:30:17.745-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_usuario
+2025-12-03T14:30:17.768-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_usuario
+2025-12-03T14:30:17.769-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_conta_bancaria
+2025-12-03T14:30:17.770-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_conta_bancaria
+2025-12-03T14:30:17.770-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_centro_custo
+2025-12-03T14:30:17.771-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_centro_custo
+2025-12-03T14:30:17.771-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_transferencia
+2025-12-03T14:30:17.772-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_transferencia
+2025-12-03T14:30:17.772-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_cartao_credito
+2025-12-03T14:30:17.773-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_cartao_credito
+2025-12-03T14:30:17.773-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_fatura_cartao
+2025-12-03T14:30:17.773-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_fatura_cartao
+2025-12-03T14:30:17.774-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_entidade
+2025-12-03T14:30:17.774-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_entidade
+2025-12-03T14:30:17.775-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_lancamento
+2025-12-03T14:30:17.775-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_lancamento
+2025-12-03T14:30:17.776-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_recebimento
+2025-12-03T14:30:17.776-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_recebimento
+2025-12-03T14:30:17.777-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_pagamento
+2025-12-03T14:30:17.777-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_pagamento
+2025-12-03T14:30:17.777-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_movimento_conta
+2025-12-03T14:30:17.778-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    select
+        next value for seq_movimento_conta
+2025-12-03T14:30:17.795-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        usuario
+        (criado_em, email, nome, id) 
+    values
+        (?, ?, ?, ?)
+2025-12-03T14:30:17.812-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        usuario
+        (criado_em, email, nome, id) 
+    values
+        (?, ?, ?, ?)
+2025-12-03T14:30:17.813-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        conta_bancaria
+        (agencia, apelido, data_saldo_inicial, instituicao, numero, saldo_inicial, status, id_usuario, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.814-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        conta_bancaria
+        (agencia, apelido, data_saldo_inicial, instituicao, numero, saldo_inicial, status, id_usuario, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.814-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        centro_custo
+        (codigo, nome, status, id_usuario, id) 
+    values
+        (?, ?, ?, ?, ?)
+2025-12-03T14:30:17.815-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        centro_custo
+        (codigo, nome, status, id_usuario, id) 
+    values
+        (?, ?, ?, ?, ?)
+2025-12-03T14:30:17.815-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        transferencia
+        (id_conta_bancaria_destino, id_conta_bancaria_origem, data, observacao, valor, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.816-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        transferencia
+        (id_conta_bancaria_destino, id_conta_bancaria_origem, data, observacao, valor, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.816-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        cartao_credito
+        (apelido, bandeira, emissor, fechamento_fatura_dia, status, id_usuario, vencimento_fatura_dia, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.817-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        cartao_credito
+        (apelido, bandeira, emissor, fechamento_fatura_dia, status, id_usuario, vencimento_fatura_dia, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.817-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        fatura_cartao
+        (id_cartao, competencia, data_fechamento, data_vencimento, status, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.818-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        fatura_cartao
+        (id_cartao, competencia, data_fechamento, data_vencimento, status, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.818-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        entidade
+        (documento, nome, id_usuario, id) 
+    values
+        (?, ?, ?, ?)
+2025-12-03T14:30:17.818-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        entidade
+        (documento, nome, id_usuario, id) 
+    values
+        (?, ?, ?, ?)
+2025-12-03T14:30:17.819-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        lancamento
+        (id_cartao_credito, id_centro_custo, id_conta_bancaria, data_competencia, data_vencimento, descricao, id_entidade, meio_pagamento, status_lancamento, tipo_lancamento, id_usuario, valor, valor_baixado, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.819-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        lancamento
+        (id_cartao_credito, id_centro_custo, id_conta_bancaria, data_competencia, data_vencimento, descricao, id_entidade, meio_pagamento, status_lancamento, tipo_lancamento, id_usuario, valor, valor_baixado, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.820-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        recebimento
+        (id_conta_bancaria, data_recebimento, id_lancamento, observacao, valor_recebido, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.820-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        recebimento
+        (id_conta_bancaria, data_recebimento, id_lancamento, observacao, valor_recebido, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.821-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        pagamento
+        (id_conta_bancaria, data_pagamento, id_lancamento, observacao, valor_pago, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.821-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        pagamento
+        (id_conta_bancaria, data_pagamento, id_lancamento, observacao, valor_pago, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.822-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        movimento_conta
+        (id_conta, data_movimento, historico, status, valor, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.822-03:00 DEBUG 13024 --- [controle_financeiro] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        movimento_conta
+        (id_conta, data_movimento, historico, status, valor, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-12-03T14:30:17.921-03:00  WARN 13024 --- [controle_financeiro] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-03T14:30:18.145-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:controlefinanceirodb'
+2025-12-03T14:30:18.237-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-03T14:30:18.262-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-03T14:30:18.267-03:00  INFO 13024 --- [controle_financeiro] [restartedMain] c.p.c.ControleFinanceiroApplication      : Started ControleFinanceiroApplication in 4.494 seconds (process running for 5.093)
+2025-12-03T14:30:22.332-03:00  INFO 13024 --- [controle_financeiro] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-03T14:30:22.332-03:00  INFO 13024 --- [controle_financeiro] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-03T14:30:22.334-03:00  INFO 13024 --- [controle_financeiro] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-03T14:30:22.448-03:00 DEBUG 13024 --- [controle_financeiro] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        l1_0.id,
+        l1_0.id_cartao_credito,
+        l1_0.id_centro_custo,
+        l1_0.id_conta_bancaria,
+        l1_0.data_competencia,
+        l1_0.data_vencimento,
+        l1_0.descricao,
+        l1_0.id_entidade,
+        l1_0.meio_pagamento,
+        l1_0.status_lancamento,
+        l1_0.tipo_lancamento,
+        l1_0.id_usuario,
+        l1_0.valor,
+        l1_0.valor_baixado 
+    from
+        lancamento l1_0 
+    where
+        l1_0.data_vencimento between ? and ?
+2025-12-03T14:30:45.419-03:00 DEBUG 13024 --- [controle_financeiro] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        l1_0.id,
+        l1_0.id_cartao_credito,
+        l1_0.id_centro_custo,
+        l1_0.id_conta_bancaria,
+        l1_0.data_competencia,
+        l1_0.data_vencimento,
+        l1_0.descricao,
+        l1_0.id_entidade,
+        l1_0.meio_pagamento,
+        l1_0.status_lancamento,
+        l1_0.tipo_lancamento,
+        l1_0.id_usuario,
+        l1_0.valor,
+        l1_0.valor_baixado 
+    from
+        lancamento l1_0 
+    where
+        l1_0.data_vencimento between ? and ?
+2025-12-03T14:30:50.281-03:00  INFO 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-03T14:30:50.285-03:00  INFO 13024 --- [controle_financeiro] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-03T14:30:50.289-03:00  INFO 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03T14:30:50.289-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists cartao_credito cascade 
+2025-12-03T14:30:50.290-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists centro_custo cascade 
+2025-12-03T14:30:50.291-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists conta_bancaria cascade 
+2025-12-03T14:30:50.291-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists entidade cascade 
+2025-12-03T14:30:50.292-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists fatura_cartao cascade 
+2025-12-03T14:30:50.292-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists lancamento cascade 
+2025-12-03T14:30:50.292-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists movimento_conta cascade 
+2025-12-03T14:30:50.293-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pagamento cascade 
+2025-12-03T14:30:50.293-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists recebimento cascade 
+2025-12-03T14:30:50.293-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists transferencia cascade 
+2025-12-03T14:30:50.293-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists usuario cascade 
+2025-12-03T14:30:50.294-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_cartao_credito
+2025-12-03T14:30:50.294-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_centro_custo
+2025-12-03T14:30:50.294-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_conta_bancaria
+2025-12-03T14:30:50.294-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_entidade
+2025-12-03T14:30:50.294-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_fatura_cartao
+2025-12-03T14:30:50.294-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_lancamento
+2025-12-03T14:30:50.294-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_movimento_conta
+2025-12-03T14:30:50.295-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_pagamento
+2025-12-03T14:30:50.295-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_recebimento
+2025-12-03T14:30:50.295-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_transferencia
+2025-12-03T14:30:50.295-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop sequence if exists seq_usuario
+2025-12-03T14:30:50.295-03:00 TRACE 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryClosed from [org.hibernate.internal.SessionFactoryImpl@362598be] for TypeConfiguration
+2025-12-03T14:30:50.295-03:00 DEBUG 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] o.h.type.spi.TypeConfiguration$Scope     : Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@30570767] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@362598be]
+2025-12-03T14:30:50.299-03:00  WARN 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-12-03T14:30:50.299-03:00  INFO 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-03T14:30:50.300-03:00  INFO 13024 --- [controle_financeiro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

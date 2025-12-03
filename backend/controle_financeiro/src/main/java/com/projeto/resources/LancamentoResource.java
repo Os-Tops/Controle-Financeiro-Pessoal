@@ -1,6 +1,8 @@
 package com.projeto.resources;
 
 import com.projeto.domains.dtos.LancamentoDTO;
+import com.projeto.domains.enums.StatusLancamento;
+import com.projeto.domains.enums.TipoLancamento;
 import com.projeto.services.LancamentoService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.List;
 
 @Validated
@@ -25,27 +28,27 @@ public class LancamentoResource {
         this.service = service;
     }
 
-    // GET paginado; filtro por grupo opcional (?usuarioId=)
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<Page<LancamentoDTO>> list(
-            @RequestParam(required = false) Integer usuarioId,
+            @RequestParam(required = false) TipoLancamento tipo,
+            @RequestParam(required = false) StatusLancamento status,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate inicio,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fim,
             @PageableDefault(size = 20, sort = "dataVencimento") Pageable pageable) {
 
-        Page<LancamentoDTO> page = (usuarioId != null)
-                ? service.findAllByUsuario(usuarioId, pageable) // paginado + filtro
-                : service.findAll(pageable);                // paginado sem filtro (real no DB)
+        Page<LancamentoDTO> page = service.findWithFilters(tipo, status, inicio, fim, pageable);
 
         return ResponseEntity.ok(page);
     }
 
-    // GET não paginado; filtro por grupo opcional (?usuarioId=)
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<LancamentoDTO>> listAll(
-            @RequestParam(required = false) Integer usuarioId) {
+            @RequestParam(required = false) TipoLancamento tipo,
+            @RequestParam(required = false) StatusLancamento status,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate inicio,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fim) {
 
-        List<LancamentoDTO> body = (usuarioId != null)
-                ? service.findAllByUsuario(usuarioId) // não paginado + filtro
-                : service.findAll();              // não paginado sem filtro
+        List<LancamentoDTO> body = service.findListWithFilters(tipo, status, inicio, fim);
 
         return ResponseEntity.ok(body);
     }
