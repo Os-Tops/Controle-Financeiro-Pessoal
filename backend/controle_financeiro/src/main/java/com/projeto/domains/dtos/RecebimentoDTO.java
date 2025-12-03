@@ -18,7 +18,7 @@ public class RecebimentoDTO {
     private Long id;
 
     @NotBlank(message = "Data do recebimento é obrigatório")
-    @JsonFormat(pattern = "dd")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
     private LocalDate dataRecebimento = LocalDate.now();
 

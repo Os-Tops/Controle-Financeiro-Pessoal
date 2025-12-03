@@ -5,7 +5,7 @@ import com.projeto.domains.enums.StatusLancamento;
 import com.projeto.domains.enums.TipoLancamento;
 import org.springframework.data.jpa.domain.Specification;
 
-import jakarta.persistence.criteria.Predicate; // Cuidado com o import (javax ou jakarta dependendo da versão)
+import jakarta.persistence.criteria.Predicate;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
