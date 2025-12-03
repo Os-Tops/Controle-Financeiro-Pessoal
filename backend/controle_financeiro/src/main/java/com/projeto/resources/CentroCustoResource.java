@@ -6,12 +6,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/centrocusto")
+@RequestMapping("/api/v1/centros-custo")
 public class CentroCustoResource {
 
     private final CentroCustoService service;
@@ -20,29 +23,68 @@ public class CentroCustoResource {
         this.service = service;
     }
 
-    // GET paginado; filtro por grupo opcional (?usuarioId=)
     @GetMapping
     public ResponseEntity<Page<CentroCustoDTO>> list(
-            @RequestParam(required = false) Integer usuarioId,
+            @RequestParam(required = false) Boolean ativo,
             @PageableDefault(size = 20, sort = "nome") Pageable pageable) {
 
-        Page<CentroCustoDTO> page = (usuarioId != null)
-                ? service.findAllByUsuario(usuarioId, pageable) // paginado + filtro
-                : service.findAll(pageable);                // paginado sem filtro (real no DB)
+        Page<CentroCustoDTO> page =
+                (ativo != null)
+                        ? service.findAllByAtivo(ativo, pageable)
+                        : service.findAll(pageable);
 
         return ResponseEntity.ok(page);
     }
 
-    // GET não paginado; filtro por grupo opcional (?usuarioId=)
+
     @GetMapping("/all")
     public ResponseEntity<List<CentroCustoDTO>> listAll(
-            @RequestParam(required = false) Integer usuarioId) {
+            @RequestParam(required = false) Boolean ativo) {
 
-        List<CentroCustoDTO> body = (usuarioId != null)
-                ? service.findAllByUsuario(usuarioId) // não paginado + filtro
-                : service.findAll();              // não paginado sem filtro
+        List<CentroCustoDTO> body =
+                (ativo != null)
+                        ? service.findAllByAtivo(ativo)
+                        : service.findAll();
 
         return ResponseEntity.ok(body);
     }
-    
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CentroCustoDTO> findById(@PathVariable Long id) {
+        CentroCustoDTO dto = service.findById(id);
+        return ResponseEntity.ok(dto);
+    }
+
+
+    @PostMapping
+    public ResponseEntity<CentroCustoDTO> create(
+            @RequestBody @Validated(CentroCustoDTO.Create.class) CentroCustoDTO dto
+    ) {
+        CentroCustoDTO created = service.create(dto);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(created.getId())
+                .toUri();
+
+        return ResponseEntity.created(location).body(created);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CentroCustoDTO> update(
+            @PathVariable Long id,
+            @RequestBody @Validated(CentroCustoDTO.Update.class) CentroCustoDTO dto
+    ) {
+        dto.setId(id);
+        CentroCustoDTO updated = service.update(id, dto);
+        return ResponseEntity.ok(updated);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
