@@ -1,7 +1,8 @@
 package com.projeto.services;
 
+import com.projeto.domains.ContaBancaria;
+import com.projeto.domains.Lancamento;
 import com.projeto.domains.Recebimento;
-import com.projeto.domains.dtos.PagamentoDTO;
 import com.projeto.domains.dtos.RecebimentoDTO;
 import com.projeto.mappers.RecebimentoMapper;
 import com.projeto.repositories.RecebimentoRepository;
@@ -132,4 +133,39 @@ public class RecebimentoService {
                 .orElseThrow(() ->
                         new ObjectNotFoundException("Recebimento não encontrado: id=" + id));
     }
+
+    //Create
+    @Transactional
+    public RecebimentoDTO create(RecebimentoDTO recebimentoDTO, Integer lancamentoId) {
+
+        if (recebimentoDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados do recebimento são obrigatórios");
+        }
+
+        if (recebimentoDTO.getContaBancariaId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id da Conta de Destino é obrigatório");
+        }
+
+        ContaBancaria contaBancaria = contaBancariaRepo.findById(Long.valueOf(recebimentoDTO.getContaBancariaId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Conta bancária não encontrada: id=" + recebimentoDTO.getContaBancariaId())
+                );
+
+        Lancamento lancamento = lancamentoRepo.findById(Long.valueOf(lancamentoId))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Lançamento não encontrado: id=" + recebimentoDTO.getLancamentoId())
+                );
+
+        recebimentoDTO.setId(null);
+        recebimentoDTO.setLancamentoId(lancamentoId);
+        Recebimento recebimento;
+        try{
+            recebimento = RecebimentoMapper.toEntity(recebimentoDTO, contaBancaria, lancamento);
+        } catch (IllegalArgumentException ex){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return RecebimentoMapper.toDto(recebimentoRepo.save(recebimento));
+    }
+    
 }

@@ -1,7 +1,9 @@
 package com.projeto.services;
 
-import com.projeto.domains.Pagamento;
+import com.projeto.domains.*;
+import com.projeto.domains.dtos.LancamentoDTO;
 import com.projeto.domains.dtos.PagamentoDTO;
+import com.projeto.mappers.LancamentoMapper;
 import com.projeto.mappers.PagamentoMapper;
 import com.projeto.repositories.PagamentoRepository;
 import com.projeto.repositories.LancamentoRepository;
@@ -130,5 +132,40 @@ public class PagamentoService {
                 .map(PagamentoMapper::toDto)
                 .orElseThrow(() ->
                         new ObjectNotFoundException("Pagamento não encontrado: id=" + id));
+    }
+
+    //Create
+    @Transactional
+    public PagamentoDTO create(PagamentoDTO pagamentoDTO, Integer lancamentoId) {
+
+        if (pagamentoDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados do pagamento são obrigatórios");
+        }
+
+        if (pagamentoDTO.getContaBancariaId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id da Conta de Origem é obrigatório");
+        }
+
+
+        ContaBancaria contaBancaria = contaBancariaRepo.findById(Long.valueOf(pagamentoDTO.getContaBancariaId()))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Conta bancária não encontrada: id=" + pagamentoDTO.getContaBancariaId())
+                );
+
+        Lancamento lancamento = lancamentoRepo.findById(Long.valueOf(lancamentoId))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Lançamento não encontrado: id=" + pagamentoDTO.getLancamentoId())
+                );
+
+        pagamentoDTO.setId(null);
+        pagamentoDTO.setLancamentoId(lancamentoId);
+        Pagamento pagamento;
+        try{
+            pagamento = PagamentoMapper.toEntity(pagamentoDTO, contaBancaria, lancamento);
+        } catch (IllegalArgumentException ex){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return PagamentoMapper.toDto(pagamentoRepo.save(pagamento));
     }
 }

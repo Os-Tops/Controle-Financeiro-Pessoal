@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EntidadeRepository extends JpaRepository<Entidade, Long> {
     Page<Entidade> findByUsuario_Id(Integer usuarioId, Pageable pageable);
+    Page<Entidade> findByNome(String nome, Pageable pageable);
 }

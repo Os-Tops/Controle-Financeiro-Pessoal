@@ -18,7 +18,7 @@ public class PagamentoDTO {
     private Long id;
 
     @NotBlank(message = "Data do Pagamento é obrigatório")
-    @JsonFormat(pattern = "dd")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
     private LocalDate dataPagamento = LocalDate.now();
 
