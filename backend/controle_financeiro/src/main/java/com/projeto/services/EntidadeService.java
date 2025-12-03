@@ -93,6 +93,41 @@ public class EntidadeService {
     }
 
     @Transactional(readOnly = true)
+    public Page<EntidadeDTO> findByNome(String nome, Pageable pageable) {
+
+        final Pageable effective;
+        if (pageable == null || pageable.isUnpaged()) {
+            effective = Pageable.unpaged();
+        } else {
+            effective = PageRequest.of(
+                    Math.max(0, pageable.getPageNumber()),
+                    Math.min(pageable.getPageSize(), MAX_PAGE_SIZE),
+                    pageable.getSort()
+            );
+        }
+
+        Page<Entidade> page=Page.empty();
+
+        if (nome != null) {
+            page = entidadeRepo.findByNome(nome, effective);
+            if(page.isEmpty()){
+                throw new ObjectNotFoundException("Nenhuma entidade encontrada com o nome: " + nome);
+            }
+        }
+
+        return EntidadeMapper.toDtoPage(page);
+    }
+
+    /**
+     * Busca lista completa (sem paginação) com filtros
+     * Reutiliza a lógica acima passando Pageable.unpaged()
+     */
+    @Transactional(readOnly = true)
+    public List<EntidadeDTO> findByNome(String nome) {
+        return findByNome(nome, Pageable.unpaged()).getContent();
+    }
+
+    @Transactional(readOnly = true)
     public EntidadeDTO findById(Integer id) {
         if (id == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id é obrigatório");

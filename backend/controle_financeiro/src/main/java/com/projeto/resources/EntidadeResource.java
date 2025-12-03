@@ -24,28 +24,21 @@ public class EntidadeResource {
         this.service = service;
     }
 
-    // GET paginado; filtro por grupo opcional (?usuarioId=)
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<Page<EntidadeDTO>> list(
-            @RequestParam(required = false) Integer usuarioId,
+            @RequestParam(required = false) String nome, //
             @PageableDefault(size = 20, sort = "nome") Pageable pageable) {
 
-        Page<EntidadeDTO> page = (usuarioId != null)
-                ? service.findAllByUsuario(usuarioId, pageable) // paginado + filtro
-                : service.findAll(pageable);                // paginado sem filtro (real no DB)
-
+        Page<EntidadeDTO> page = service.findByNome(nome, pageable);
         return ResponseEntity.ok(page);
     }
 
-    // GET não paginado; filtro por grupo opcional (?usuarioId=)
-    @GetMapping("/all")
+    // GET Lista completa (sem paginação)
+    @GetMapping
     public ResponseEntity<List<EntidadeDTO>> listAll(
-            @RequestParam(required = false) Integer usuarioId) {
+            @RequestParam(required = false) String nome) {
 
-        List<EntidadeDTO> body = (usuarioId != null)
-                ? service.findAllByUsuario(usuarioId) // não paginado + filtro
-                : service.findAll();              // não paginado sem filtro
-
+        List<EntidadeDTO> body = service.findByNome(nome);
         return ResponseEntity.ok(body);
     }
 
