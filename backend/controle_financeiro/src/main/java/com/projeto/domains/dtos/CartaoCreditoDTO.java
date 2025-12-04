@@ -1,7 +1,6 @@
 package com.projeto.domains.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
@@ -28,18 +27,16 @@ public class CartaoCreditoDTO {
     private String apelido;
 
     @NotNull(message = "Dia do Fechamento da Fatura é obrigatório")
-    @JsonFormat(pattern = "dd")
-    @Column(nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechamentoFaturaDia = LocalDate.now();
 
     @NotNull(message = "Dia do Vencimento da Fatura é obrigatório")
-    @JsonFormat(pattern = "dd")
-    @Column(nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate vencimentoFaturaDia = LocalDate.now();
 
     @Min(value = 0, message = "Status do Cartão inválido: use 0 (DESBLOQUEADO) ou 1 (BLOQUEADO)")
     @Max(value = 1, message = "Status do Cartão inválido: use 0 (DESBLOQUEADO) ou 1 (BLOQUEADO)")
-    private Integer statusCartao;   // <- AGORA É Integer, NÃO int
+    private Integer statusCartao;
 
     @NotNull(message = "Usuario é obrigatório")
     private Integer usuarioId;
@@ -53,7 +50,7 @@ public class CartaoCreditoDTO {
                             String apelido,
                             LocalDate fechamentoFaturaDia,
                             LocalDate vencimentoFaturaDia,
-                            Integer statusCartao,      // <- Integer aqui
+                            Integer statusCartao,
                             Integer usuarioId) {
         this.id = id;
         this.bandeira = bandeira;
@@ -113,11 +110,11 @@ public class CartaoCreditoDTO {
         this.vencimentoFaturaDia = vencimentoFaturaDia;
     }
 
-    public Integer getStatusCartao() {          // <- RETORNA Integer
+    public Integer getStatusCartao() {
         return statusCartao;
     }
 
-    public void setStatusCartao(Integer statusCartao) {  // <- RECEBE Integer
+    public void setStatusCartao(Integer statusCartao) {
         this.statusCartao = statusCartao;
     }
 
