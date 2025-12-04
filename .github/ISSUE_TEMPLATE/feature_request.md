@@ -16,11 +16,8 @@ assignees: ''
 
 ## ✅ Critérios de Aceite
 
-- [ ] aaaa
-- [ ] bbb
-- [ ]  
+- [ ] 
 
 ## 🗒️ Observações
 
--  **
--  **
+-  Sem observações
