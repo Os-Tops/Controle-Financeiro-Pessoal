@@ -1,10 +1,11 @@
 package com.projeto.services;
 
 import com.projeto.domains.CartaoCredito;
+import com.projeto.domains.Usuario;
 import com.projeto.domains.dtos.CartaoCreditoDTO;
 import com.projeto.mappers.CartaoCreditoMapper;
-import com.projeto.repositories.UsuarioRepository;
 import com.projeto.repositories.CartaoCreditoRepository;
+import com.projeto.repositories.UsuarioRepository;
 import com.projeto.services.exceptions.ObjectNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,7 +26,7 @@ public class CartaoCreditoService {
     private final UsuarioRepository usuarioRepo;
 
     public CartaoCreditoService(CartaoCreditoRepository cartaoCreditoRepo,
-                              UsuarioRepository usuarioRepo) {
+                                UsuarioRepository usuarioRepo) {
         this.cartaoCreditoRepo = cartaoCreditoRepo;
         this.usuarioRepo = usuarioRepo;
     }
@@ -56,19 +57,17 @@ public class CartaoCreditoService {
         return CartaoCreditoMapper.toDtoPage(page);
     }
 
-    /** Paginado, filtrando por grupo */
+    /** Paginado, filtrando por usuário */
     @Transactional(readOnly = true)
     public Page<CartaoCreditoDTO> findAllByUsuario(Integer usuarioId, Pageable pageable) {
         if (usuarioId == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "usuarioId é obrigatório");
         }
 
-        // valida existência do grupo para erro claro
         if (!usuarioRepo.existsById(Long.valueOf(usuarioId))) {
             throw new ObjectNotFoundException("Usuario não encontrado: id=" + usuarioId);
         }
 
-        // ✅ trate unpaged aqui
         final Pageable effective;
         if (pageable == null || pageable.isUnpaged()) {
             effective = Pageable.unpaged();
@@ -84,10 +83,111 @@ public class CartaoCreditoService {
         return CartaoCreditoMapper.toDtoPage(page);
     }
 
-    /** Não paginado, filtrando por grupo (reaproveita o paginado com unpaged) */
+    /** Não paginado, filtrando por usuário */
     @Transactional(readOnly = true)
     public List<CartaoCreditoDTO> findAllByUsuario(Integer usuarioId) {
         return findAllByUsuario(usuarioId, Pageable.unpaged()).getContent();
     }
-    
+
+    @Transactional(readOnly = true)
+    public CartaoCreditoDTO findById(Long id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id de cartão de crédito é obrigatório");
+        }
+
+        return cartaoCreditoRepo.findById(id)
+                .map(CartaoCreditoMapper::toDto)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Cartão de crédito não encontrado: id=" + id));
+    }
+
+    /* =================== CREATE =================== */
+
+    @Transactional
+    public CartaoCreditoDTO create(CartaoCreditoDTO cartaoCreditoDTO) {
+
+        if (cartaoCreditoDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados do cartão de crédito são obrigatórios");
+        }
+
+        if (cartaoCreditoDTO.getUsuarioId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do usuário é obrigatório");
+        }
+
+        Integer usuarioId = cartaoCreditoDTO.getUsuarioId();
+        Usuario usuario = usuarioRepo.findById(Long.valueOf(usuarioId))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Usuário não encontrado: id=" + usuarioId)
+                );
+
+        cartaoCreditoDTO.setId(null);
+
+        // se não vier statusCartao, default = 1 (BLOQUEADO)
+        if (cartaoCreditoDTO.getStatusCartao() == null) {
+            cartaoCreditoDTO.setStatusCartao(1); // mapper converte 0 -> Status.values()[0]
+        }
+
+        CartaoCredito cartaoCredito;
+        try {
+            cartaoCredito = CartaoCreditoMapper.toEntity(cartaoCreditoDTO, usuario);
+        } catch (IllegalArgumentException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return CartaoCreditoMapper.toDto(cartaoCreditoRepo.save(cartaoCredito));
+    }
+
+    /* =================== UPDATE =================== */
+
+    @Transactional
+    public CartaoCreditoDTO update(Long id, CartaoCreditoDTO cartaoCreditoDTO) {
+
+        if (cartaoCreditoDTO == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados do cartão de crédito são obrigatórios");
+        }
+
+        if (cartaoCreditoDTO.getUsuarioId() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id do usuário é obrigatório");
+        }
+
+        // garante que o cartão existe
+        CartaoCredito existente = cartaoCreditoRepo.findById(id)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Cartão não encontrado: id=" + id));
+
+        Integer usuarioId = cartaoCreditoDTO.getUsuarioId();
+        Usuario usuario = usuarioRepo.findById(Long.valueOf(usuarioId))
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Usuário não encontrado: id=" + usuarioId)
+                );
+
+        cartaoCreditoDTO.setId(id);
+
+        if (cartaoCreditoDTO.getStatusCartao() == null && existente.getStatusCartao() != null) {
+        }
+
+        CartaoCredito cartaoCredito;
+        try {
+            cartaoCredito = CartaoCreditoMapper.toEntity(cartaoCreditoDTO, usuario);
+        } catch (IllegalArgumentException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+
+        return CartaoCreditoMapper.toDto(cartaoCreditoRepo.save(cartaoCredito));
+    }
+
+    /* =================== DELETE =================== */
+
+    @Transactional
+    public void delete(Long id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id é obrigatório");
+        }
+
+        CartaoCredito cartaoCredito = cartaoCreditoRepo.findById(id)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("Cartão de crédito não encontrado: id=" + id));
+
+        cartaoCreditoRepo.delete(cartaoCredito);
+    }
 }

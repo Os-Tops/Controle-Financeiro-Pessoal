@@ -1,8 +1,8 @@
 package com.projeto.domains.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
+
 import java.time.LocalDate;
 
 public class CartaoCreditoDTO {
@@ -26,19 +26,17 @@ public class CartaoCreditoDTO {
     @Size(max = 150, message = "Apelido deve ter no máximo 50 caracteres")
     private String apelido;
 
-    @NotBlank(message = "Dia do Fechamento da Fatura é obrigatório")
-    @JsonFormat(pattern = "dd")
-    @Column(nullable = false)
+    @NotNull(message = "Dia do Fechamento da Fatura é obrigatório")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechamentoFaturaDia = LocalDate.now();
 
-    @NotBlank(message = "Dia do Vencimento da Fatura é obrigatório")
-    @JsonFormat(pattern = "dd")
-    @Column(nullable = false)
+    @NotNull(message = "Dia do Vencimento da Fatura é obrigatório")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate vencimentoFaturaDia = LocalDate.now();
 
     @Min(value = 0, message = "Status do Cartão inválido: use 0 (DESBLOQUEADO) ou 1 (BLOQUEADO)")
     @Max(value = 1, message = "Status do Cartão inválido: use 0 (DESBLOQUEADO) ou 1 (BLOQUEADO)")
-    private int statusCartao;
+    private Integer statusCartao;
 
     @NotNull(message = "Usuario é obrigatório")
     private Integer usuarioId;
@@ -46,9 +44,14 @@ public class CartaoCreditoDTO {
     public CartaoCreditoDTO() {
     }
 
-    public CartaoCreditoDTO(Long id, String bandeira, String emissor, String apelido,
-                            LocalDate fechamentoFaturaDia, LocalDate vencimentoFaturaDia,
-                            int statusCartao, Integer usuarioId) {
+    public CartaoCreditoDTO(Long id,
+                            String bandeira,
+                            String emissor,
+                            String apelido,
+                            LocalDate fechamentoFaturaDia,
+                            LocalDate vencimentoFaturaDia,
+                            Integer statusCartao,
+                            Integer usuarioId) {
         this.id = id;
         this.bandeira = bandeira;
         this.emissor = emissor;
@@ -107,11 +110,11 @@ public class CartaoCreditoDTO {
         this.vencimentoFaturaDia = vencimentoFaturaDia;
     }
 
-    public int getStatusCartao() {
+    public Integer getStatusCartao() {
         return statusCartao;
     }
 
-    public void setStatusCartao(int statusCartao) {
+    public void setStatusCartao(Integer statusCartao) {
         this.statusCartao = statusCartao;
     }
 

@@ -1,8 +1,8 @@
 package com.projeto.domains.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -11,23 +11,20 @@ public class FaturaCartaoDTO {
     public interface Create {}
     public interface Update {}
 
-    @Null(groups = CartaoCreditoDTO.Create.class, message = "Id deve ser omitido na criação")
-    @NotNull(groups = CartaoCreditoDTO.Update.class, message = "Id é obrigatório na atualização")
+    @Null(groups = Create.class, message = "Id deve ser omitido na criação")
+    @NotNull(groups = Update.class, message = "Id é obrigatório na atualização")
     private Long id;
 
-    @NotBlank(message = "Competência é obrigatório")
-    @JsonFormat(pattern = "dd")
-    @Column(nullable = false)
+    @NotNull(message = "Competência é obrigatória")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate competencia = LocalDate.now();
 
-    @NotBlank(message = "Data do Fechamento da Fatura é obrigatório")
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column(nullable = false)
+    @NotNull(message = "Data do Fechamento da Fatura é obrigatória")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataFechamentoFatura = LocalDate.now();
 
-    @NotBlank(message = "Data do Vencimento da Fatura é obrigatório")
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column(nullable = false)
+    @NotNull(message = "Data do Vencimento da Fatura é obrigatória")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataVencimentoFatura = LocalDate.now();
 
     @Digits(integer = 12, fraction = 3, message = "Valor total deve ter no máximo 12 inteiros e 3 decimais")
@@ -44,8 +41,12 @@ public class FaturaCartaoDTO {
     public FaturaCartaoDTO() {
     }
 
-    public FaturaCartaoDTO(Long id, LocalDate competencia, LocalDate dataFechamentoFatura,
-                           LocalDate dataVencimentoFatura,BigDecimal valorTotal, int statusFatura,
+    public FaturaCartaoDTO(Long id,
+                           LocalDate competencia,
+                           LocalDate dataFechamentoFatura,
+                           LocalDate dataVencimentoFatura,
+                           BigDecimal valorTotal,
+                           int statusFatura,
                            Integer cartaoCreditoId) {
         this.id = id;
         this.competencia = competencia;
