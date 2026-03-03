@@ -7,8 +7,8 @@ public class EntidadeDTO {
     public interface Create {}
     public interface Update {}
 
-    @Null(groups = EntidadeDTO.Create.class, message = "Id deve ser omitido na criação")
-    @NotNull(groups = EntidadeDTO.Update.class, message = "Id é obrigatório na atualização")
+    @Null(groups = CartaoCreditoDTO.Create.class, message = "Id deve ser omitido na criação")
+    @NotNull(groups = CartaoCreditoDTO.Update.class, message = "Id é obrigatório na atualização")
     private Long id;
 
     @NotBlank(message = "Nome da entidade é obrigatória")
