@@ -1,28 +1,8 @@
 package com.projeto.services;
 
-import com.projeto.domains.Transferencia;
-import com.projeto.domains.Recebimento;
-import com.projeto.domains.Pagamento;
-import com.projeto.domains.MovimentoConta;
-import com.projeto.domains.Lancamento;
-import com.projeto.domains.FaturaCartao;
-import com.projeto.domains.Entidade;
-import com.projeto.domains.ContaBancaria;
-import com.projeto.domains.CentroCusto;
-import com.projeto.domains.CartaoCredito;
-import com.projeto.domains.Usuario;
+import com.projeto.domains.*;
 import com.projeto.domains.enums.*;
-import com.projeto.repositories.TransferenciaRepository;
-import com.projeto.repositories.RecebimentoRepository;
-import com.projeto.repositories.PagamentoRepository;
-import com.projeto.repositories.MovimentoContaRepository;
-import com.projeto.repositories.LancamentoRepository;
-import com.projeto.repositories.FaturaCartaoRepository;
-import com.projeto.repositories.EntidadeRepository;
-import com.projeto.repositories.ContaBancariaRepository;
-import com.projeto.repositories.CentroCustoRepository;
-import com.projeto.repositories.CartaoCreditoRepository;
-import com.projeto.repositories.UsuarioRepository;
+import com.projeto.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,6 +47,9 @@ public class DBService {
     @Autowired
     private UsuarioRepository usuarioRepo;
 
+    @Autowired
+    private TelefoneUsuarioRepository telefoneUsuarioRepo;
+
     public void initDB() {
 
         try {
@@ -75,6 +58,12 @@ public class DBService {
             Usuario usuario02 = new Usuario(null, "Ana", "aninha@bol.com", LocalDate.of(2022, 8, 14));
             usuarioRepo.save(usuario01);
             usuarioRepo.save(usuario02);
+
+            // Criar telefones
+            TelefoneUsuario telefone01 = new TelefoneUsuario(null, "17", "34650200", usuario01);
+            TelefoneUsuario telefone02 = new TelefoneUsuario(null, "17", "999999999", usuario02);
+            telefoneUsuarioRepo.save(telefone01);
+            telefoneUsuarioRepo.save(telefone02);
 
             // Criar contas bancárias
             ContaBancaria conta1 = new ContaBancaria(null, "Banco A", 123, 456789, new BigDecimal("5000.00"), "Conta Corrente", LocalDate.of(2025, 1, 1), Status.ATIVA, usuario01);
